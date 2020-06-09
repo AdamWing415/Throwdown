@@ -76,6 +76,8 @@ namespace Throwdown
 
         private void gameScreen_Load(object sender, EventArgs e)
         {
+            
+
             if (Form1.P1Character == "Hitbox")
             {
                 P1X = 50;
@@ -87,7 +89,11 @@ namespace Throwdown
                 P1CharBox.Image = Properties.Resources.hitbox_passive;
                 P1CharBox.Size = new Size(P1Width, P1Height);
                 P1CharBox.Location = new Point(P1X, P1Y);
+
+                
             }
+
+            this.textBox1.Focus();
         }
         private void gameScreen_KeyDown(object sender, KeyEventArgs e)
         {
@@ -223,15 +229,13 @@ namespace Throwdown
 
             if (rArrowDown == true)
             {
-                button1.BackColor = Color.Blue;
                 P1X += 10;
             }
             if (Form1.P1Character == "Hitbox")
             {
                 P1HitboxControls();
             }
-            Random test = new Random();
-            button1.Location = new Point(test.Next(0,800), P1Y) ;
+            
             P1CharBox.Location = new Point(P1X, P1Y);
             Refresh();
         }
@@ -263,7 +267,7 @@ namespace Throwdown
             }
             if (P1Move == "lightNeutral" && P1FrameData < 8)
             {
-                P1CharBox.Size = new Size(P1Width, P1HitHeight);
+                P1CharBox.Size = new Size(P1Width, P1Height);
                 P1CharBox.Image = Properties.Resources.hitbox_passive;
             }
             #endregion
