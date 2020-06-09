@@ -60,7 +60,7 @@
             this.Controls.Add(this.tempChar);
             this.Controls.Add(this.tempButton);
             this.Name = "characterSelectScreen";
-            this.Size = new System.Drawing.Size(900, 506);
+            this.Size = new System.Drawing.Size(900, 500);
             this.Load += new System.EventHandler(this.characterSelectScreen_Load);
             this.ResumeLayout(false);
 

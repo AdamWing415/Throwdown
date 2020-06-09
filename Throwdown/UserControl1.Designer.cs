@@ -61,7 +61,7 @@
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.playButton);
             this.Name = "TitleScreen";
-            this.Size = new System.Drawing.Size(900, 506);
+            this.Size = new System.Drawing.Size(900, 500);
             this.Load += new System.EventHandler(this.TitleScreen_Load);
             this.ResumeLayout(false);
 
