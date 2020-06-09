@@ -13,6 +13,8 @@ namespace Throwdown
 {
     public partial class Form1 : Form
     {
+        public static string P1Character = "unselected";
+        public static string P2Character = "unselected";
         public Form1()
         {
             InitializeComponent();
