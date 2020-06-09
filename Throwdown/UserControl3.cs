@@ -51,6 +51,7 @@ namespace Throwdown
         int P1Width, P1Height;
         int P1HitX, P1HitY;
         int P1HitWidth, P1HitHeight;
+        //use framedata for both hit stun and input lag?
         int P1FrameData = 0;
         string P1Move;
 
@@ -227,7 +228,7 @@ namespace Throwdown
         private void gametimer_Tick(object sender, EventArgs e)
         {
 
-            if (rArrowDown == true)
+            if (rArrowDown == true && P1X < 750 && P1FrameData == 0)
             {
                 P1X += 10;
             }
