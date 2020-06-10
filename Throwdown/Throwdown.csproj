@@ -128,5 +128,8 @@
   <ItemGroup>
     <None Include="Resources\hitbox light side.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hitbox jump.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
