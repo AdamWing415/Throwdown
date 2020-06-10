@@ -116,5 +116,17 @@
   <ItemGroup>
     <None Include="Resources\hitbox passive.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hitbox parry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hitbox block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hitbox walk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hitbox light side.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -54,6 +54,8 @@ namespace Throwdown
         //use framedata for both hit stun and input lag?
         int P1FrameData = 0;
         string P1Move;
+        bool P1Blocking = false;
+        bool P1Parry;
 
         int P2X, P2Y;
         int P2Width, P2Height;
@@ -61,8 +63,8 @@ namespace Throwdown
         int P2HitWidth, P2HitHeight;
         int P2FrameData = 0;
 
-        
-
+        bool P2Blocking = false;
+        bool P2Parry;
         string P2Move;
 
         int round;
@@ -228,10 +230,6 @@ namespace Throwdown
         private void gametimer_Tick(object sender, EventArgs e)
         {
 
-            if (rArrowDown == true && P1X < 750 && P1FrameData == 0)
-            {
-                P1X += 10;
-            }
             if (Form1.P1Character == "Hitbox")
             {
                 P1HitboxControls();
@@ -246,6 +244,43 @@ namespace Throwdown
         {
             Rectangle P1Hurtbox = new Rectangle(P1X, P1Y, P1Width, P1Height);
 
+            #region blocking
+            //blocking
+            if (downArrowDown == true && P1FrameData == 0)
+            {
+                P1Blocking = true;
+                P1CharBox.Image = Properties.Resources.hitbox_block;
+                Refresh();
+                P1FrameData = 1;
+            }
+            else if (downArrowPress == true && P1FrameData < 2)
+            {
+                P1Blocking = false;
+                P1Parry = true;
+                P1FrameData = 45;
+            }
+            else
+            {
+                P1Parry = false;
+                P1CharBox.Image = Properties.Resources.hitbox_passive;
+                Refresh();
+            }
+#endregion
+
+            #region walking
+            //walking forward
+            if (rArrowDown == true && P1X < 750 && P1FrameData == 0)
+            {
+                P1X += 8;
+                //add walking frames
+            }
+            //walking backwards
+            if (lArrowDown == true && P1X > 0 && P1FrameData == 0)
+            {
+                P1X -= 7;
+            //add walking frames
+            }
+            #endregion
             //put all moves here
             #region lightNeutral
             if (mDown == true && rArrowDown == false && lArrowDown == false && P1FrameData == 0)
@@ -265,11 +300,75 @@ namespace Throwdown
                 P1HitWidth = 80;
                 P1HitHeight = 40;
                 Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+                //fix when P2 is added
+                /*if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false)
+                {
+                    P2health -= 3;
+                    
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true)
+                {
+                //usually half damage but is odd
+                    P2health -= 2;
+                    
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Parry == true)
+                {
+                    P2health -= 0;
+                    set p2 image to parry
+                }
+                */
             }
             if (P1Move == "lightNeutral" && P1FrameData < 8)
             {
                 P1CharBox.Size = new Size(P1Width, P1Height);
                 P1CharBox.Image = Properties.Resources.hitbox_passive;
+                Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
+            }
+            #endregion
+
+            #region Forwardlight
+            if (mDown == true && rArrowDown == true && lArrowDown == false && P1FrameData == 0)
+            {
+                P1FrameData = 26;
+                P1Move = "lightForward";
+            }
+
+            if (P1Move == "lightForward" && P1FrameData <= 18 && P1FrameData >= 11)
+            {
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
+                P1CharBox.Image = Properties.Resources.hitbox_light_side;
+                Refresh();
+
+                P1HitX = P1X + P1Width;
+                P1HitY = P1Y - 140;
+                P1HitWidth = 50;
+                P1HitHeight = 120;
+                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+                //fix when P2 is added
+                /*if (P1Hitbox.IntersectsWith(P2Hurtbox))
+                {
+                    P2health -= 4;
+                    
+                }
+                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true)
+                {
+                //usually half damage but is odd
+                    P2health -= 2;
+                    
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && sUp == true)
+                {
+                    P2health -= 0;
+                    
+                }
+                */
+            }
+            if (P1Move == "lightForward" && P1FrameData < 11)
+            {
+                P1CharBox.Size = new Size(P1Width, P1Height);
+                P1CharBox.Image = Properties.Resources.hitbox_passive;
+                Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
 
