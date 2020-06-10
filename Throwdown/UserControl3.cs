@@ -236,6 +236,7 @@ namespace Throwdown
             }
             
             P1CharBox.Location = new Point(P1X, P1Y);
+
             Refresh();
         }
 
@@ -250,7 +251,7 @@ namespace Throwdown
             {
                 P1Blocking = true;
                 P1CharBox.Image = Properties.Resources.hitbox_block;
-                Refresh();
+                P1CharBox.Refresh();
                 P1FrameData = 1;
             }
             else if (downArrowPress == true && P1FrameData < 2)
@@ -263,7 +264,7 @@ namespace Throwdown
             {
                 P1Parry = false;
                 P1CharBox.Image = Properties.Resources.hitbox_passive;
-                Refresh();
+                P1CharBox.Refresh();
             }
 #endregion
 
@@ -293,7 +294,7 @@ namespace Throwdown
             {
                 P1CharBox.Size = new Size(P1Width + 50, P1Height);
                 P1CharBox.Image = Properties.Resources.hitbox_light_neutral;
-                Refresh();
+                P1CharBox.Refresh();
 
                 P1HitX = P1X + P1Width;
                 P1HitY = P1Y - 25;
@@ -323,6 +324,7 @@ namespace Throwdown
             {
                 P1CharBox.Size = new Size(P1Width, P1Height);
                 P1CharBox.Image = Properties.Resources.hitbox_passive;
+                P1CharBox.Refresh();
                 Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -338,7 +340,7 @@ namespace Throwdown
             {
                 P1CharBox.Size = new Size(P1Width + 50, P1Height);
                 P1CharBox.Image = Properties.Resources.hitbox_light_side;
-                Refresh();
+                P1CharBox.Refresh();
 
                 P1HitX = P1X + P1Width;
                 P1HitY = P1Y - 140;
@@ -368,6 +370,7 @@ namespace Throwdown
             {
                 P1CharBox.Size = new Size(P1Width, P1Height);
                 P1CharBox.Image = Properties.Resources.hitbox_passive;
+                P1CharBox.Refresh();
                 Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -377,7 +380,7 @@ namespace Throwdown
                 P1FrameData--;
             }
 
-            Refresh();
+            
         }
 
 
