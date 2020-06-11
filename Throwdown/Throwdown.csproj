@@ -140,5 +140,14 @@
   <ItemGroup>
     <None Include="Resources\hitbox forward aerial.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\title background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\char select background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text backdrop.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

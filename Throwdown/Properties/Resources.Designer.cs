@@ -63,6 +63,16 @@ namespace Throwdown.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap char_select_background {
+            get {
+                object obj = ResourceManager.GetObject("char_select_background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hitbox_block {
             get {
                 object obj = ResourceManager.GetObject("hitbox_block", resourceCulture);
@@ -156,6 +166,26 @@ namespace Throwdown.Properties {
         internal static System.Drawing.Bitmap hitbox_walk {
             get {
                 object obj = ResourceManager.GetObject("hitbox_walk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap text_backdrop {
+            get {
+                object obj = ResourceManager.GetObject("text_backdrop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap title_background {
+            get {
+                object obj = ResourceManager.GetObject("title_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -35,5 +35,7 @@ namespace Throwdown
             Form1.Controls.Add(css);
             css.Location = new Point((Form1.Width - css.Width) / 2, (Form1.Height - css.Height) / 2);
         }
+
+       
     }
 }
