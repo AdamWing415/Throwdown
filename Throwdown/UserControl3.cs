@@ -56,6 +56,7 @@ namespace Throwdown
         string P1Move;
         bool P1Blocking = false;
         bool P1Parry;
+        int P1WalkCycle;
 
         int P2X, P2Y;
         int P2Width, P2Height;
@@ -87,6 +88,7 @@ namespace Throwdown
                 P1Y = 150;
                 P1Width = 160;
                 P1Height = 300;
+                P1WalkCycle = 35;
 
 
                 P1CharBox.Image = Properties.Resources.hitbox_passive;
@@ -278,16 +280,47 @@ namespace Throwdown
             //walking forward
             if (rArrowDown == true && P1X < 750 && P1FrameData == 0)
             {
-                P1X += 8;
-                //add walking frames
+                P1X += 7;
+                if (P1WalkCycle > 17)
+                {
+                    P1CharBox.Image = Properties.Resources.hitbox_walk;
+                    P1CharBox.Refresh();
+                    P1WalkCycle--;
+                }
+                else if(P1WalkCycle == 0)
+                {
+                    P1WalkCycle = 35;
+                }
+                else
+                {
+                    P1CharBox.Image = Properties.Resources.hitbox_passive;
+                    P1CharBox.Refresh();
+                    P1WalkCycle--;
+                }
             }
             //walking backwards
             if (lArrowDown == true && P1X > 0 && P1FrameData == 0)
             {
-                P1X -= 7;
-            //add walking frames
+                P1X -= 6;
+                if (P1WalkCycle > 17)
+                {
+                    P1CharBox.Image = Properties.Resources.hitbox_walk;
+                    P1CharBox.Refresh();
+                    P1WalkCycle--;
+                }
+                else if (P1WalkCycle == 0)
+                {
+                    P1WalkCycle = 35;
+                }
+                else
+                {
+                    P1CharBox.Image = Properties.Resources.hitbox_passive;
+                    P1CharBox.Refresh();
+                    P1WalkCycle--;
+                }
             }
             #endregion
+
              //temp "jump" just for testing, replace with real jump later: don't use up arrow, use dedicated button, this is just easier for tests
             if (upArrowDown == true && P1FrameData == 0)
             {
@@ -479,11 +512,103 @@ namespace Throwdown
             }
             #endregion
 
+            #region NeutralHeavy
+            if (spaceDown == true && rArrowDown == false && P1FrameData == 0 && P1Y >= 150)
+            {
+                P1FrameData = 27;
+                P1Move = "NeutralHeavy";
+            }
+
+            if (P1Move == "NeutralHeavy" && P1FrameData <= 22 && P1FrameData >= 16)
+            {
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
+                P1CharBox.Image = Properties.Resources.hitbox_Neutral_Heavy;
+                P1CharBox.Refresh();
+
+                P1HitX = P1X + P1Width - 30;
+                P1HitY = P1Y - 230;
+                P1HitWidth = 80;
+                P1HitHeight = 70;
+                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+                //fix when P2 is added
+                /*if (P1Hitbox.IntersectsWith(P2Hurtbox))
+                {
+                    P2health -= 4;
+                    
+                }
+                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true)
+                {
+                //usually half damage but is odd
+                    P2health -= 2;
+                    
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && sUp == true)
+                {
+                    P2health -= 0;
+                    
+                }
+                */
+            }
+            if (P1Move == "NeutralHeavy" && P1FrameData < 16)
+            {
+                P1CharBox.Size = new Size(P1Width, P1Height);
+                P1CharBox.Image = Properties.Resources.hitbox_passive;
+                P1CharBox.Refresh();
+                Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
+            }
+            #endregion
+
+            #region ForwardHeavy
+            if (spaceDown == true && rArrowDown == true && P1FrameData == 0 && P1Y >= 150)
+            {
+                P1FrameData = 33;
+                P1Move = "ForwardHeavy";
+            }
+
+            if (P1Move == "ForwardHeavy" && P1FrameData <= 27 && P1FrameData >= 19)
+            {
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
+                P1CharBox.Image = Properties.Resources.hitbox_forward_heavy;
+                P1CharBox.Refresh();
+
+                P1HitX = P1X + P1Width - 20;
+                P1HitY = P1Y - 10;
+                P1HitWidth = 50;
+                P1HitHeight = 150;
+                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+                //fix when P2 is added
+                /*if (P1Hitbox.IntersectsWith(P2Hurtbox))
+                {
+                    P2health -= 4;
+                    
+                }
+                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true)
+                {
+                //usually half damage but is odd
+                    P2health -= 2;
+                    
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && sUp == true)
+                {
+                    P2health -= 0;
+                    
+                }
+                */
+            }
+            if (P1Move == "ForwardHeavy" && P1FrameData < 19)
+            {
+                P1CharBox.Size = new Size(P1Width, P1Height);
+                P1CharBox.Image = Properties.Resources.hitbox_passive;
+                P1CharBox.Refresh();
+                Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
+            }
+            #endregion
+
             if (P1FrameData > 0)
             {
                 P1FrameData--;
             }
-
+            
             
         }
 
