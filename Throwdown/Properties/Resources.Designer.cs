@@ -73,6 +73,26 @@ namespace Throwdown.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hitbox_forward_aerial {
+            get {
+                object obj = ResourceManager.GetObject("hitbox_forward_aerial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hitbox_hitstun {
+            get {
+                object obj = ResourceManager.GetObject("hitbox_hitstun", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hitbox_jump {
             get {
                 object obj = ResourceManager.GetObject("hitbox_jump", resourceCulture);
@@ -96,6 +116,16 @@ namespace Throwdown.Properties {
         internal static System.Drawing.Bitmap hitbox_light_side {
             get {
                 object obj = ResourceManager.GetObject("hitbox_light_side", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hitbox_neutral_aerial {
+            get {
+                object obj = ResourceManager.GetObject("hitbox_neutral_aerial", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

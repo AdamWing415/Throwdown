@@ -258,7 +258,7 @@ namespace Throwdown
             {
                 P1Blocking = false;
                 P1Parry = true;
-                P1FrameData = 45;
+                P1FrameData = 20;
             }
             else
             {
@@ -282,9 +282,15 @@ namespace Throwdown
             //add walking frames
             }
             #endregion
+             //temp "jump" just for testing, replace with real jump later
+            if (upArrowDown == true && P1FrameData == 0)
+            {
+                P1Y -= 1;
+            }
+
             //put all moves here
             #region lightNeutral
-            if (mDown == true && rArrowDown == false && lArrowDown == false && P1FrameData == 0)
+            if (mDown == true && rArrowDown == false && P1FrameData == 0 && P1Y >= 150)
             {
                 P1FrameData = 20;
                 P1Move = "lightNeutral";
@@ -330,7 +336,7 @@ namespace Throwdown
             #endregion
 
             #region Forwardlight
-            if (mDown == true && rArrowDown == true && lArrowDown == false && P1FrameData == 0)
+            if (mDown == true && rArrowDown == true && P1FrameData == 0 && P1Y >= 150)
             {
                 P1FrameData = 26;
                 P1Move = "lightForward";
@@ -367,6 +373,98 @@ namespace Throwdown
                 */
             }
             if (P1Move == "lightForward" && P1FrameData < 11)
+            {
+                P1CharBox.Size = new Size(P1Width, P1Height);
+                P1CharBox.Image = Properties.Resources.hitbox_passive;
+                P1CharBox.Refresh();
+                Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
+            }
+            #endregion
+
+            #region ForwardAerial
+            if (mDown == true && rArrowDown == true && P1FrameData == 0 && P1Y < 150)
+            {
+                P1FrameData = 19;
+                P1Move = "ForwardAerial";
+            }
+
+            if (P1Move == "ForwardAerial" && P1FrameData <= 16 && P1FrameData >= 11)
+            {
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
+                P1CharBox.Image = Properties.Resources.hitbox_forward_aerial;
+                P1CharBox.Refresh();
+
+                P1HitX = P1X + P1Width -50;
+                P1HitY = P1Y - 250;
+                P1HitWidth = 100;
+                P1HitHeight = 60;
+                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+                //fix when P2 is added
+                /*if (P1Hitbox.IntersectsWith(P2Hurtbox))
+                {
+                    P2health -= 4;
+                    
+                }
+                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true)
+                {
+                //usually half damage but is odd
+                    P2health -= 2;
+                    
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && sUp == true)
+                {
+                    P2health -= 0;
+                    
+                }
+                */
+            }
+            if (P1Move == "ForwardAerial" && P1FrameData < 11)
+            {
+                P1CharBox.Size = new Size(P1Width, P1Height);
+                P1CharBox.Image = Properties.Resources.hitbox_passive;
+                P1CharBox.Refresh();
+                Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
+            }
+            #endregion
+
+            #region NeutralAerial
+            if (mDown == true && rArrowDown == false && P1FrameData == 0 && P1Y < 150)
+            {
+                P1FrameData = 23;
+                P1Move = "NeutralAerial";
+            }
+
+            if (P1Move == "NeutralAerial" && P1FrameData <= 17 && P1FrameData >= 13)
+            {
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
+                P1CharBox.Image = Properties.Resources.hitbox_neutral_aerial;
+                P1CharBox.Refresh();
+
+                P1HitX = P1X + P1Width - 50;
+                P1HitY = P1Y - 260;
+                P1HitWidth = 80;
+                P1HitHeight = 80;
+                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+                //fix when P2 is added
+                /*if (P1Hitbox.IntersectsWith(P2Hurtbox))
+                {
+                    P2health -= 4;
+                    
+                }
+                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true)
+                {
+                //usually half damage but is odd
+                    P2health -= 2;
+                    
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && sUp == true)
+                {
+                    P2health -= 0;
+                    
+                }
+                */
+            }
+            if (P1Move == "NeutralAerial" && P1FrameData < 13)
             {
                 P1CharBox.Size = new Size(P1Width, P1Height);
                 P1CharBox.Image = Properties.Resources.hitbox_passive;
