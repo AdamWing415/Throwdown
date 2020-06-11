@@ -288,7 +288,7 @@ namespace Throwdown
             //add walking frames
             }
             #endregion
-             //temp "jump" just for testing, replace with real jump later
+             //temp "jump" just for testing, replace with real jump later: don't use up arrow, use dedicated button, this is just easier for tests
             if (upArrowDown == true && P1FrameData == 0)
             {
                 P1Y -= 1;
