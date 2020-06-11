@@ -237,6 +237,12 @@ namespace Throwdown
             
             P1CharBox.Location = new Point(P1X, P1Y);
 
+            //player colision
+            if(P1X + P1Width == P2X)
+            {
+                P1X -= 5;
+                P2X += 5;
+            }
             Refresh();
         }
 
