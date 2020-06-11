@@ -127,6 +127,9 @@
   <data name="hitbox_forward_aerial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hitbox forward aerial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hitbox_forward_heavy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hitbox forward heavy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="hitbox_hitstun" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hitbox hitstun.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,6 +145,9 @@
   <data name="hitbox_neutral_aerial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hitbox neutral aerial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hitbox_Neutral_Heavy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hitbox Neutral Heavy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="hitbox_parry" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hitbox parry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -150,6 +156,42 @@
   </data>
   <data name="hitbox_walk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hitbox walk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2hitbox_block" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2hitbox block.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2hitbox_forward_aerial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2hitbox forward aerial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2hitbox_forward_heavy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2hitbox forward heavy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2hitbox_hitstun" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2hitbox hitstun.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2hitbox_jump" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2hitbox jump.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2hitbox_light_neutral" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2hitbox light neutral.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2hitbox_light_side" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2hitbox light side.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2hitbox_neutral_aerial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2hitbox neutral aerial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2hitbox_Neutral_Heavy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2hitbox Neutral Heavy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2hitbox_parry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2hitbox parry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2hitbox_passive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2hitbox passive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2hitbox_walk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2hitbox walk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="text_backdrop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text backdrop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -93,6 +93,16 @@ namespace Throwdown.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hitbox_forward_heavy {
+            get {
+                object obj = ResourceManager.GetObject("hitbox_forward_heavy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hitbox_hitstun {
             get {
                 object obj = ResourceManager.GetObject("hitbox_hitstun", resourceCulture);
@@ -143,6 +153,16 @@ namespace Throwdown.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hitbox_Neutral_Heavy {
+            get {
+                object obj = ResourceManager.GetObject("hitbox_Neutral_Heavy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hitbox_parry {
             get {
                 object obj = ResourceManager.GetObject("hitbox_parry", resourceCulture);
@@ -166,6 +186,126 @@ namespace Throwdown.Properties {
         internal static System.Drawing.Bitmap hitbox_walk {
             get {
                 object obj = ResourceManager.GetObject("hitbox_walk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2hitbox_block {
+            get {
+                object obj = ResourceManager.GetObject("P2hitbox_block", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2hitbox_forward_aerial {
+            get {
+                object obj = ResourceManager.GetObject("P2hitbox_forward_aerial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2hitbox_forward_heavy {
+            get {
+                object obj = ResourceManager.GetObject("P2hitbox_forward_heavy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2hitbox_hitstun {
+            get {
+                object obj = ResourceManager.GetObject("P2hitbox_hitstun", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2hitbox_jump {
+            get {
+                object obj = ResourceManager.GetObject("P2hitbox_jump", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2hitbox_light_neutral {
+            get {
+                object obj = ResourceManager.GetObject("P2hitbox_light_neutral", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2hitbox_light_side {
+            get {
+                object obj = ResourceManager.GetObject("P2hitbox_light_side", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2hitbox_neutral_aerial {
+            get {
+                object obj = ResourceManager.GetObject("P2hitbox_neutral_aerial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2hitbox_Neutral_Heavy {
+            get {
+                object obj = ResourceManager.GetObject("P2hitbox_Neutral_Heavy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2hitbox_parry {
+            get {
+                object obj = ResourceManager.GetObject("P2hitbox_parry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2hitbox_passive {
+            get {
+                object obj = ResourceManager.GetObject("P2hitbox_passive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2hitbox_walk {
+            get {
+                object obj = ResourceManager.GetObject("P2hitbox_walk", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -149,5 +149,47 @@
   <ItemGroup>
     <None Include="Resources\text backdrop.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2hitbox forward heavy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2hitbox Neutral Heavy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2hitbox neutral aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2hitbox hitstun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2hitbox forward aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2hitbox jump.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2hitbox parry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2hitbox block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2hitbox walk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2hitbox light side.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2hitbox passive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2hitbox light neutral.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hitbox forward heavy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hitbox Neutral Heavy.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
