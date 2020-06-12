@@ -48,18 +48,20 @@
             // 
             this.P1CharBox.BackColor = System.Drawing.Color.Transparent;
             this.P1CharBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.P1CharBox.Location = new System.Drawing.Point(42, 162);
+            this.P1CharBox.Location = new System.Drawing.Point(32, 132);
+            this.P1CharBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.P1CharBox.Name = "P1CharBox";
-            this.P1CharBox.Size = new System.Drawing.Size(160, 300);
+            this.P1CharBox.Size = new System.Drawing.Size(120, 244);
             this.P1CharBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.P1CharBox.TabIndex = 0;
             this.P1CharBox.TabStop = false;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(887, 475);
+            this.textBox1.Location = new System.Drawing.Point(665, 386);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(10, 22);
+            this.textBox1.Size = new System.Drawing.Size(8, 20);
             this.textBox1.TabIndex = 1;
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyDown);
             this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyUp);
@@ -68,9 +70,10 @@
             // 
             this.P2CharBox.BackColor = System.Drawing.Color.Transparent;
             this.P2CharBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.P2CharBox.Location = new System.Drawing.Point(688, 162);
+            this.P2CharBox.Location = new System.Drawing.Point(516, 132);
+            this.P2CharBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.P2CharBox.Name = "P2CharBox";
-            this.P2CharBox.Size = new System.Drawing.Size(160, 300);
+            this.P2CharBox.Size = new System.Drawing.Size(120, 244);
             this.P2CharBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.P2CharBox.TabIndex = 2;
             this.P2CharBox.TabStop = false;
@@ -78,23 +81,25 @@
             // testlabel
             // 
             this.testlabel.AutoSize = true;
-            this.testlabel.Location = new System.Drawing.Point(400, 73);
+            this.testlabel.Location = new System.Drawing.Point(300, 59);
+            this.testlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.testlabel.Name = "testlabel";
-            this.testlabel.Size = new System.Drawing.Size(46, 17);
+            this.testlabel.Size = new System.Drawing.Size(35, 13);
             this.testlabel.TabIndex = 3;
             this.testlabel.Text = "label1";
             // 
             // gameScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Purple;
             this.Controls.Add(this.testlabel);
             this.Controls.Add(this.P2CharBox);
             this.Controls.Add(this.P1CharBox);
             this.Controls.Add(this.textBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "gameScreen";
-            this.Size = new System.Drawing.Size(900, 500);
+            this.Size = new System.Drawing.Size(675, 406);
             this.Load += new System.EventHandler(this.gameScreen_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyUp);

@@ -77,6 +77,8 @@ namespace Throwdown
         int round;
         int R1Winner, R2Winner, R3Winner;
 
+        int Force = 0;
+
         #endregion
 
         public gameScreen()
@@ -283,6 +285,8 @@ namespace Throwdown
 
         public void P1HitboxControls()
         {
+            int UpVelocity = 1;
+            bool jump;
             Rectangle P2Hurtbox = new Rectangle(P2X, P2Y, P2Width, P2Height);
             Rectangle P1Hurtbox = new Rectangle(P1X, P1Y, P1Width, P1Height);
 
@@ -354,12 +358,33 @@ namespace Throwdown
             }
             #endregion
 
-             //temp "jump" just for testing, replace with real jump later: don't use up arrow, use dedicated button, this is just easier for tests
-            if (upArrowDown == true && P1FrameData == 0)
+            //temp "jump" just for testing, replace with real jump later: don't use up arrow, use dedicated button, this is just easier for tests
+            if (P1CharBox.Location.Y < 140)   
             {
-                P1Y -= 1;
+                jump = true;
+                    P1Y += 1 + (Force * UpVelocity);
+                    Force++;
+            }
+            else
+            {
+                jump = false;
+                Force = 20;
             }
 
+            if (upArrowDown == true && P1FrameData == 0 && P1CharBox.Location.Y >= 6 && jump == false)
+            {
+                for (int i = 1; i < 10; i++)
+                {
+                    P1Y -= Force + 1;
+                    Force --;
+                    
+                }
+
+            }
+
+
+
+            
             //put all moves here
             #region lightNeutral
             if (mDown == true && rArrowDown == false && P1FrameData == 0 && P1Y >= 150)
