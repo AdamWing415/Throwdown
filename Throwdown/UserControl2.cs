@@ -38,6 +38,7 @@ namespace Throwdown
         private void tempChar_Click(object sender, EventArgs e)
         {
             Form1.P1Character = "Hitbox";
+            Form1.P2Character = "Hitbox";
         }
 
         
