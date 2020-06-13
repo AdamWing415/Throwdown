@@ -80,19 +80,39 @@ namespace Throwdown
         int P1Force = 0;
         int P2Force = 0;
 
+        private void continueButton_Click(object sender, EventArgs e)
+        {
+            paused = false;
+            gametimer.Start();
+        }
+
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+            paused = false;
+            gametimer.Start();
+            Form Form1 = this.FindForm();
+            Form1.Controls.Remove(this);
+            TitleScreen ts = new TitleScreen();
+            Form1.Controls.Add(ts);
+            ts.Location = new Point((Form1.Width - ts.Width) / 2, (Form1.Height - ts.Height) / 2);
+
+        }
+
         int P1JumpTimer = 0;
         int P2JumpTimer = 0;
 
+        bool paused = false;
         #endregion
 
         public gameScreen()
         {
             InitializeComponent();
+            
         }
 
         private void gameScreen_Load(object sender, EventArgs e)
         {
-
+            
 
             if (Form1.P1Character == "Hitbox")
             {
@@ -284,6 +304,29 @@ namespace Throwdown
             testlabel.Text = Convert.ToString(P1Health) + "\n" + Convert.ToString(P2Health);
             Refresh();
 
+            
+
+            if (paused == true)
+            {
+               
+                continueButton.Visible = true;
+                quitButton.Visible = true;
+                pauseScreen.Visible = true;
+                Task.Delay(100);
+                Refresh();
+                gametimer.Stop();
+            }
+            if (paused == false)
+            {
+                pauseScreen.Visible = false;
+                continueButton.Visible = false;
+                quitButton.Visible = false;
+                
+                if (escapeDown == true)
+                {
+                    paused = true;
+                }
+            }
         }
 
 

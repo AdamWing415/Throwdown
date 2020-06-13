@@ -26,7 +26,7 @@ namespace Throwdown
 
         private void tempButton_Click(object sender, EventArgs e)
         {
-            
+
             Form Form1 = this.FindForm();
             Form1.Controls.Remove(this);
             gameScreen gs = new gameScreen();
