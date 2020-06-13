@@ -15,7 +15,7 @@ namespace Throwdown
 
     public partial class gameScreen : UserControl
     {
-       
+
         #region keyDownVariables
         bool wDown = false;
         bool aDown = false;
@@ -77,7 +77,11 @@ namespace Throwdown
         int round;
         int R1Winner, R2Winner, R3Winner;
 
-        int Force = 0;
+        int P1Force = 0;
+        int P2Force = 0;
+
+        int P1JumpTimer = 0;
+        int P2JumpTimer = 0;
 
         #endregion
 
@@ -88,7 +92,7 @@ namespace Throwdown
 
         private void gameScreen_Load(object sender, EventArgs e)
         {
-            
+
 
             if (Form1.P1Character == "Hitbox")
             {
@@ -246,7 +250,7 @@ namespace Throwdown
                     break;
             }
         }
-        
+
         private void gametimer_Tick(object sender, EventArgs e)
         {
 
@@ -264,29 +268,33 @@ namespace Throwdown
             P2CharBox.Location = new Point(P2X, P2Y);
 
             //player colision
-            if (P1X + P1Width - 20 >= P2X && P1X > 0 && P2X <750)
+            if (P1X + P1Width - 20 >= P2X && P1X > 0 && P2X < 750)
             {
                 P1X -= 10;
                 P2X += 10;
             }
             else if (P1X + P1Width - 20 >= P2X && P1X <= 0 && P2X < 750)
-            {            
+            {
                 P2X += 10;
             }
             else if (P1X + P1Width - 20 >= P2X && P1X > 0 && P2X >= 750)
             {
                 P1X -= 10;
             }
-            testlabel.Text = Convert.ToString(P1Health) +"\n" + Convert.ToString( P2Health);
+            testlabel.Text = Convert.ToString(P1Health) + "\n" + Convert.ToString(P2Health);
             Refresh();
-            
+
         }
 
 
         public void P1HitboxControls()
         {
-            int UpVelocity = 1;
-            bool jump;
+            if (P1Stun > 0)
+            {
+                P1FrameData = P1Stun;
+            }
+
+
             Rectangle P2Hurtbox = new Rectangle(P2X, P2Y, P2Width, P2Height);
             Rectangle P1Hurtbox = new Rectangle(P1X, P1Y, P1Width, P1Height);
 
@@ -311,7 +319,7 @@ namespace Throwdown
                 P1CharBox.Image = Properties.Resources.hitbox_passive;
                 P1CharBox.Refresh();
             }
-#endregion
+            #endregion
 
             #region walking
             //walking forward
@@ -324,7 +332,7 @@ namespace Throwdown
                     P1CharBox.Refresh();
                     P1WalkCycle--;
                 }
-                else if(P1WalkCycle == 0)
+                else if (P1WalkCycle == 0)
                 {
                     P1WalkCycle = 35;
                 }
@@ -358,33 +366,49 @@ namespace Throwdown
             }
             #endregion
 
-            //temp "jump" just for testing, replace with real jump later: don't use up arrow, use dedicated button, this is just easier for tests
-            if (P1CharBox.Location.Y < 140)   
+            #region Jump
+            bool jump;
+           
+            if (P1JumpTimer == 0 && P1Y <= 140)
             {
                 jump = true;
-                    P1Y += 1 + (Force * UpVelocity);
-                    Force++;
+                P1Y += 1 + P1Force;
+                P1Force++;
+                P1CharBox.Image = Properties.Resources.hitbox_jump;
+                P1CharBox.Refresh();
+            }
+            if (P1Y <= 140)
+            {
+                jump = true;
+                
             }
             else
             {
                 jump = false;
-                Force = 20;
+                P1Force = 15;
+                P1Y = 150;
             }
 
-            if (upArrowDown == true && P1FrameData == 0 && P1CharBox.Location.Y >= 6 && jump == false)
+            if (P1JumpTimer > 0)
             {
-                for (int i = 1; i < 10; i++)
-                {
-                    P1Y -= Force + 1;
-                    Force --;
-                    
-                }
+                P1Y -= P1Force + 1;
+                P1Force--;
 
+                P1CharBox.Image = Properties.Resources.hitbox_jump;
+                P1CharBox.Refresh();
+                P1JumpTimer--;
             }
 
+            if (upArrowDown == true && P1FrameData == 0 && P1Y >= 140 && jump == false)
+            {
+                P1JumpTimer = 15;
+            }
+            if (nDown == true && P1FrameData == 0 && P1Y >= 140 && jump == false)
+            {
+                P1JumpTimer = 15;
+            }
+            #endregion
 
-
-            
             //put all moves here
             #region lightNeutral
             if (mDown == true && rArrowDown == false && P1FrameData == 0 && P1Y >= 150)
@@ -404,7 +428,7 @@ namespace Throwdown
                 P1HitWidth = 80;
                 P1HitHeight = 40;
                 Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
-               
+
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
                 {
                     P2Health -= 3;
@@ -414,7 +438,7 @@ namespace Throwdown
                 }
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true && P2Stun == 0)
                 {
-                
+
                     P2Health -= 2;
                     P2CharBox.Image = Properties.Resources.P2hitbox_hitstun;
                     P2CharBox.Refresh();
@@ -427,7 +451,7 @@ namespace Throwdown
                     P2CharBox.Refresh();
                     P2Stun = 9;
                 }
-                
+
             }
             if (P1Move == "lightNeutral" && P1FrameData < 8)
             {
@@ -441,13 +465,13 @@ namespace Throwdown
             #endregion
 
             #region Forwardlight
-            if (mDown == true && rArrowDown == true && P1FrameData == 0 && P1Y >= 150 )
+            if (mDown == true && rArrowDown == true && P1FrameData == 0 && P1Y >= 150)
             {
                 P1FrameData = 26;
                 P1Move = "lightForward";
             }
 
-            if (P1Move == "lightForward" && P1FrameData <= 18 && P1FrameData >= 11 )
+            if (P1Move == "lightForward" && P1FrameData <= 18 && P1FrameData >= 11)
             {
                 P1CharBox.Size = new Size(P1Width + 50, P1Height);
                 P1CharBox.Image = Properties.Resources.hitbox_light_side;
@@ -457,8 +481,8 @@ namespace Throwdown
                 P1HitY = P1Y - 140;
                 P1HitWidth = 70;
                 P1HitHeight = 120;
-                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight );
-               
+                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
                 {
                     P2Health -= 4;
@@ -507,12 +531,12 @@ namespace Throwdown
                 P1CharBox.Image = Properties.Resources.hitbox_forward_aerial;
                 P1CharBox.Refresh();
 
-                P1HitX = P1X + P1Width ;
+                P1HitX = P1X + P1Width;
                 P1HitY = P1Y + 250;
                 P1HitWidth = 100;
                 P1HitHeight = 60;
                 Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
-               
+
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
                 {
                     P2Health -= 5;
@@ -560,12 +584,12 @@ namespace Throwdown
                 P1CharBox.Image = Properties.Resources.hitbox_neutral_aerial;
                 P1CharBox.Refresh();
 
-                P1HitX = P1X + P1Width ;
+                P1HitX = P1X + P1Width;
                 P1HitY = P1Y + 260;
                 P1HitWidth = 100;
                 P1HitHeight = 80;
                 Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
-               
+
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
                 {
                     P2Health -= 3;
@@ -613,12 +637,12 @@ namespace Throwdown
                 P1CharBox.Image = Properties.Resources.hitbox_Neutral_Heavy;
                 P1CharBox.Refresh();
 
-                P1HitX = P1X + P1Width ;
+                P1HitX = P1X + P1Width;
                 P1HitY = P1Y + 230;
                 P1HitWidth = 100;
                 P1HitHeight = 80;
                 Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
-                
+
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
                 {
                     P2Health -= 8;
@@ -666,12 +690,12 @@ namespace Throwdown
                 P1CharBox.Image = Properties.Resources.hitbox_forward_heavy;
                 P1CharBox.Refresh();
 
-                P1HitX = P1X + P1Width ;
+                P1HitX = P1X + P1Width;
                 P1HitY = P1Y - 10;
                 P1HitWidth = 70;
                 P1HitHeight = 150;
                 Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
-               
+
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
                 {
                     P2Health -= 9;
@@ -767,20 +791,20 @@ namespace Throwdown
                 }
             }
             //walking backwards
-            if (dDown == true && P2X <750  && P2FrameData == 0)
+            if (dDown == true && P2X < 750 && P2FrameData == 0)
             {
                 P2X += 6;
                 if (P2WalkCycle == 0)
                 {
                     P2WalkCycle = 35;
                 }
-                else if(P2WalkCycle > 17)
+                else if (P2WalkCycle > 17)
                 {
                     P2CharBox.Image = Properties.Resources.P2hitbox_walk;
                     P2CharBox.Refresh();
                     P2WalkCycle--;
                 }
-               
+
                 else
                 {
                     P2CharBox.Image = Properties.Resources.P2hitbox_passive;
@@ -790,11 +814,48 @@ namespace Throwdown
             }
             #endregion
 
-            //temp "jump" just for testing, replace with real jump later: don't use up arrow, use dedicated button, this is just easier for tests
-            if (wDown == true && P2FrameData == 0)
+            #region Jump
+            bool jump;
+
+            if (P2JumpTimer == 0 && P2Y <= 140)
             {
-                P2Y -= 1;
+                jump = true;
+                P2Y += 1 + P2Force;
+                P2Force++;
+                P2CharBox.Image = Properties.Resources.P2hitbox_jump;
+                P2CharBox.Refresh();
             }
+            if (P2Y <= 140)
+            {
+                jump = true;
+
+            }
+            else
+            {
+                jump = false;
+                P2Force = 15;
+                P2Y = 150;
+            }
+
+            if (P2JumpTimer > 0)
+            {
+                P2Y -= P2Force + 1;
+                P2Force--;
+
+                P2CharBox.Image = Properties.Resources.P2hitbox_jump;
+                P2CharBox.Refresh();
+                P2JumpTimer--;
+            }
+
+            if (wDown == true  && P2FrameData == 0 && P2Y >= 140 && jump == false)
+            {
+                P2JumpTimer = 15;
+            }
+            if (vDown == true && P2FrameData == 0 && P2Y >= 140 && jump == false)
+            {
+                P2JumpTimer = 15;
+            }
+            #endregion
 
             //put all moves here
             #region lightNeutral
@@ -815,7 +876,7 @@ namespace Throwdown
                 P2HitWidth = 80;
                 P2HitHeight = 40;
                 Rectangle P2Hitbox = new Rectangle(P2HitX, P2HitY, P2HitWidth, P2HitHeight);
-                
+
                 if (P2Hitbox.IntersectsWith(P1Hurtbox) && P1Blocking == false && P1Stun == 0)
                 {
                     P1Health -= 3;
@@ -868,7 +929,7 @@ namespace Throwdown
                 P2HitWidth = 70;
                 P2HitHeight = 120;
                 Rectangle P2Hitbox = new Rectangle(P2HitX, P2HitY, P2HitWidth, P2HitHeight);
-              
+
                 if (P2Hitbox.IntersectsWith(P1Hurtbox) && P1Blocking == false && P1Stun == 0)
                 {
                     P1Health -= 4;
@@ -921,7 +982,7 @@ namespace Throwdown
                 P2HitWidth = 100;
                 P2HitHeight = 60;
                 Rectangle P2Hitbox = new Rectangle(P2HitX, P2HitY, P2HitWidth, P2HitHeight);
-             
+
                 if (P2Hitbox.IntersectsWith(P1Hurtbox) && P1Blocking == false && P1Stun == 0)
                 {
                     P1Health -= 5;
@@ -945,7 +1006,7 @@ namespace Throwdown
                     P1Stun = 7;
                 }
             }
-            if (P2Move == "ForwardAerial" && P2FrameData < 11) 
+            if (P2Move == "ForwardAerial" && P2FrameData < 11)
             {
                 P1CharBox.Image = Properties.Resources.hitbox_passive;
                 P1CharBox.Refresh();
@@ -974,7 +1035,7 @@ namespace Throwdown
                 P2HitWidth = 80;
                 P2HitHeight = 100;
                 Rectangle P2Hitbox = new Rectangle(P2HitX, P2HitY, P2HitWidth, P2HitHeight);
-               
+
                 if (P2Hitbox.IntersectsWith(P1Hurtbox) && P1Blocking == false && P1Stun == 0)
                 {
                     P1Health -= 3;
@@ -1022,12 +1083,12 @@ namespace Throwdown
                 P2CharBox.Image = Properties.Resources.P2hitbox_Neutral_Heavy;
                 P2CharBox.Refresh();
 
-                P2HitX = P2X  - 100;
+                P2HitX = P2X - 100;
                 P2HitY = P2Y + 230;
                 P2HitWidth = 100;
                 P2HitHeight = 80;
                 Rectangle P2Hitbox = new Rectangle(P2HitX, P2HitY, P2HitWidth, P2HitHeight);
-               
+
                 if (P2Hitbox.IntersectsWith(P1Hurtbox) && P1Blocking == false && P1Stun == 0)
                 {
                     P1Health -= 8;
@@ -1080,7 +1141,7 @@ namespace Throwdown
                 P2HitWidth = 70;
                 P2HitHeight = 150;
                 Rectangle P2Hitbox = new Rectangle(P2HitX, P2HitY, P2HitWidth, P2HitHeight);
-                
+
                 if (P2Hitbox.IntersectsWith(P1Hurtbox) && P1Blocking == false && P1Stun == 0)
                 {
                     P1Health -= 9;
