@@ -41,6 +41,9 @@ namespace Throwdown
             Form1.P2Character = "Hitbox";
         }
 
-        
+        private void KeycodeSelect_Click(object sender, EventArgs e)
+        {
+            Form1.P1Character = "Keycode";
+        }
     }
 }

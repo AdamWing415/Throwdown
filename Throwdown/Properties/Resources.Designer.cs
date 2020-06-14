@@ -193,6 +193,126 @@ namespace Throwdown.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Keycode_block {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_block", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keycode_forward_air {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_forward_air", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keycode_forward_light {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_forward_light", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keycode_heavy_forward {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_heavy_forward", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keycode_heavy_neutral {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_heavy_neutral", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keycode_hitstun {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_hitstun", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keycode_jump {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_jump", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keycode_light_neutral {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_light_neutral", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keycode_neutral_air {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_neutral_air", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keycode_Parry {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_Parry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keycode_passive {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_passive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keycode_walk {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_walk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap P2hitbox_block {
             get {
                 object obj = ResourceManager.GetObject("P2hitbox_block", resourceCulture);
@@ -306,6 +426,126 @@ namespace Throwdown.Properties {
         internal static System.Drawing.Bitmap P2hitbox_walk {
             get {
                 object obj = ResourceManager.GetObject("P2hitbox_walk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2Keycode_block {
+            get {
+                object obj = ResourceManager.GetObject("P2Keycode_block", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2Keycode_forward_air {
+            get {
+                object obj = ResourceManager.GetObject("P2Keycode_forward_air", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2Keycode_forward_light {
+            get {
+                object obj = ResourceManager.GetObject("P2Keycode_forward_light", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2Keycode_heavy_forward {
+            get {
+                object obj = ResourceManager.GetObject("P2Keycode_heavy_forward", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2Keycode_heavy_neutral {
+            get {
+                object obj = ResourceManager.GetObject("P2Keycode_heavy_neutral", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2Keycode_hitstun {
+            get {
+                object obj = ResourceManager.GetObject("P2Keycode_hitstun", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2Keycode_jump {
+            get {
+                object obj = ResourceManager.GetObject("P2Keycode_jump", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2Keycode_light_neutral {
+            get {
+                object obj = ResourceManager.GetObject("P2Keycode_light_neutral", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2Keycode_neutral_air {
+            get {
+                object obj = ResourceManager.GetObject("P2Keycode_neutral_air", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2Keycode_Parry {
+            get {
+                object obj = ResourceManager.GetObject("P2Keycode_Parry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2Keycode_passive {
+            get {
+                object obj = ResourceManager.GetObject("P2Keycode_passive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2Keycode_walk {
+            get {
+                object obj = ResourceManager.GetObject("P2Keycode_walk", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

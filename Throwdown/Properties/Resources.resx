@@ -157,6 +157,42 @@
   <data name="hitbox_walk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hitbox walk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Keycode_block" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keycode block.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keycode_forward_air" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keycode forward air.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keycode_forward_light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keycode forward light.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keycode_heavy_forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keycode heavy forward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keycode_heavy_neutral" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keycode heavy neutral.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keycode_hitstun" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keycode hitstun.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keycode_jump" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keycode jump.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keycode_light_neutral" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keycode light neutral.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keycode_neutral_air" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keycode neutral air.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keycode_Parry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keycode Parry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keycode_passive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keycode passive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keycode_walk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keycode walk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="P2hitbox_block" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\P2hitbox block.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -192,6 +228,42 @@
   </data>
   <data name="P2hitbox_walk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\P2hitbox walk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2Keycode_block" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2Keycode block.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2Keycode_forward_air" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2Keycode forward air.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2Keycode_forward_light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2Keycode forward light.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2Keycode_heavy_forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2Keycode heavy forward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2Keycode_heavy_neutral" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2Keycode heavy neutral.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2Keycode_hitstun" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2Keycode hitstun.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2Keycode_jump" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2Keycode jump.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2Keycode_light_neutral" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2Keycode light neutral.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2Keycode_neutral_air" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2Keycode neutral air.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2Keycode_Parry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2Keycode Parry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2Keycode_passive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2Keycode passive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2Keycode_walk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2Keycode walk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="text_backdrop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text backdrop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

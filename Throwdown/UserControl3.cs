@@ -127,6 +127,19 @@ namespace Throwdown
                 P1CharBox.Location = new Point(P1X, P1Y);
             }
 
+            if (Form1.P1Character == "Keycode")
+            {
+                P1X = 50;
+                P1Y = 160;
+                P1Width = 160;
+                P1Height = 300;
+                P1WalkCycle = 30;
+
+                P1CharBox.Image = Properties.Resources.Keycode_passive;
+                P1CharBox.Size = new Size(P1Width, P1Height);
+                P1CharBox.Location = new Point(P1X, P1Y);
+            }
+
             if (Form1.P2Character == "Hitbox")
             {
                 P2X = 690;
@@ -140,7 +153,7 @@ namespace Throwdown
                 P2CharBox.Location = new Point(P2X, P2Y);
             }
 
-            this.textBox1.Focus();
+            this.inputBox.Focus();
         }
         private void gameScreen_KeyDown(object sender, KeyEventArgs e)
         {
@@ -278,6 +291,10 @@ namespace Throwdown
             {
                 P1HitboxControls();
             }
+            if (Form1.P1Character == "Keycode")
+            {
+                P1KeycodeControls();
+            }
 
             if (Form1.P2Character == "Hitbox")
             {
@@ -301,32 +318,35 @@ namespace Throwdown
             {
                 P1X -= 10;
             }
+
             testlabel.Text = Convert.ToString(P1Health) + "\n" + Convert.ToString(P2Health);
             Refresh();
 
-            
 
+            #region pausing
             if (paused == true)
             {
-               
+                escapeDown = false;
                 continueButton.Visible = true;
                 quitButton.Visible = true;
                 pauseScreen.Visible = true;
                 Task.Delay(100);
                 Refresh();
                 gametimer.Stop();
+                continueButton.Focus();
             }
             if (paused == false)
             {
                 pauseScreen.Visible = false;
                 continueButton.Visible = false;
                 quitButton.Visible = false;
-                
+                inputBox.Focus();
                 if (escapeDown == true)
                 {
                     paused = true;
                 }
             }
+            #endregion
         }
 
 
@@ -781,7 +801,10 @@ namespace Throwdown
             {
                 P1Stun--;
             }
-
+            if (P1FrameData == 0)
+            {
+                P1Move = "none";
+            }
         }
         public void P2HitboxControls()
         {
@@ -1227,8 +1250,441 @@ namespace Throwdown
             {
                 P2Stun--;
             }
-
+            if (P2FrameData == 0)
+            {
+                P2Move = "none";
+            }
         }
 
+        public void P1KeycodeControls()
+        {
+            if (P1Stun > 0)
+            {
+                P1FrameData = P1Stun;
+            }
+
+
+            Rectangle P2Hurtbox = new Rectangle(P2X, P2Y, P2Width, P2Height);
+            Rectangle P1Hurtbox = new Rectangle(P1X, P1Y, P1Width, P1Height);
+
+            #region blocking
+            //blocking
+            if (downArrowDown == true && P1FrameData == 0)
+            {
+                P1Blocking = true;
+                P1CharBox.Image = Properties.Resources.Keycode_block;
+                P1CharBox.Refresh();
+                P1FrameData = 1;
+            }
+            else if (downArrowPress == true && P1FrameData < 2)
+            {
+                P1Blocking = false;
+                P1Parry = true;
+                P1FrameData = 20;
+            }
+            else
+            {
+                P1Parry = false;
+                P1CharBox.Image = Properties.Resources.Keycode_passive;
+                P1CharBox.Refresh();
+            }
+            #endregion
+
+            #region walking
+            //walking forward
+            if (rArrowDown == true && P1X < 750 && P1FrameData == 0)
+            {
+                P1X += 8;
+                if (P1WalkCycle > 15)
+                {
+                    P1CharBox.Image = Properties.Resources.Keycode_walk;
+                    P1CharBox.Refresh();
+                    P1WalkCycle--;
+                }
+                else if (P1WalkCycle == 0)
+                {
+                    P1WalkCycle = 30;
+                }
+                else
+                {
+                    P1CharBox.Image = Properties.Resources.Keycode_passive;
+                    P1CharBox.Refresh();
+                    P1WalkCycle--;
+                }
+            }
+            //walking backwards
+            if (lArrowDown == true && P1X > 0 && P1FrameData == 0)
+            {
+                P1X -= 6;
+                if (P1WalkCycle > 15)
+                {
+                    P1CharBox.Image = Properties.Resources.Keycode_walk;
+                    P1CharBox.Refresh();
+                    P1WalkCycle--;
+                }
+                else if (P1WalkCycle == 0)
+                {
+                    P1WalkCycle = 30;
+                }
+                else
+                {
+                    P1CharBox.Image = Properties.Resources.Keycode_passive;
+                    P1CharBox.Refresh();
+                    P1WalkCycle--;
+                }
+            }
+            #endregion
+
+            #region Jump
+            bool jump;
+
+            if (P1JumpTimer == 0 && P1Y <= 150)
+            {
+                jump = true;
+                P1CharBox.Image = Properties.Resources.Keycode_jump;
+                P1CharBox.Refresh();
+                P1Y += 1 + P1Force;
+                P1Force++;
+                
+            }
+            if (P1Y <= 150)
+            {
+                jump = true;
+
+            }
+            else
+            {
+                jump = false;
+                P1Force = 17;
+                P1Y = 160;
+            }
+
+            if (P1JumpTimer > 0)
+            {
+                P1Y -= P1Force + 1;
+                P1Force--;
+
+                P1CharBox.Image = Properties.Resources.Keycode_jump;
+                P1CharBox.Refresh();
+                P1JumpTimer--;
+            }
+
+            if (upArrowDown == true && P1FrameData == 0 && P1Y >= 150 && jump == false)
+            {
+                P1JumpTimer = 17;
+            }
+            if (nDown == true && P1FrameData == 0 && P1Y >= 150 && jump == false)
+            {
+                P1JumpTimer = 17;
+            }
+            #endregion
+
+            //put all moves here
+            #region lightNeutral
+            if (mDown == true && rArrowDown == false && P1FrameData == 0 && P1Y >= 150)
+            {
+                P1FrameData = 18;
+                P1Move = "lightNeutral";
+            }
+
+            if (P1Move == "lightNeutral" && P1FrameData <= 15 && P1FrameData >= 9)
+            {
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
+                P1CharBox.Image = Properties.Resources.Keycode_light_neutral;
+                P1CharBox.Refresh();
+
+                P1HitX = P1X + P1Width;
+                P1HitY = P1Y - 30;
+                P1HitWidth = 80;
+                P1HitHeight = 40;
+                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
+                {
+                    P2Health -= 3;
+                    P2CharBox.Refresh();
+                    P2Stun = 7;
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true && P2Stun == 0)
+                {
+
+                    P2Health -= 2;
+                    P2CharBox.Refresh();
+                    P2Stun = 7;
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Parry == true && P2Stun == 0)
+                {
+                    P2Health -= 0;
+                    P2CharBox.Refresh();
+                    P2Stun = 7;
+                }
+
+            }
+            if (P1Move == "lightNeutral" && P1FrameData < 9)
+            {
+                P1CharBox.Size = new Size(P1Width, P1Height);
+                P1CharBox.Image = Properties.Resources.Keycode_passive;
+                P1CharBox.Refresh();
+                Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
+            }
+            #endregion
+
+            #region Forwardlight
+            if (mDown == true && rArrowDown == true && P1FrameData == 0 && P1Y >= 150)
+            {
+                P1FrameData = 25;
+                P1Move = "lightForward";
+            }
+
+            if (P1Move == "lightForward" && P1FrameData <= 18 && P1FrameData >= 11)
+            {
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
+                P1CharBox.Image = Properties.Resources.Keycode_forward_light;
+                P1CharBox.Refresh();
+
+                P1HitX = P1X + P1Width;
+                P1HitY = P1Y - 100;
+                P1HitWidth = 70;
+                P1HitHeight = 120;
+                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
+                {
+                    P2Health -= 4;
+     
+                    P2CharBox.Refresh();
+                    P2Stun = 8;
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true && P2Stun == 0)
+                {
+
+                    P2Health -= 2;
+      
+                    P2CharBox.Refresh();
+                    P2Stun = 8;
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Parry == true && P2Stun == 0)
+                {
+                    P2Health -= 0;
+    
+                    P2CharBox.Refresh();
+                    P2Stun = 8;
+                }
+
+            }
+            if (P1Move == "lightForward" && P1FrameData < 11)
+            {
+                P1CharBox.Size = new Size(P1Width, P1Height);
+                P1CharBox.Image = Properties.Resources.Keycode_passive;
+                P1CharBox.Refresh();
+                Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
+            }
+            #endregion
+
+            #region ForwardAerial
+            if (mDown == true && rArrowDown == true && P1FrameData == 0 && P1Y < 150)
+            {
+                P1FrameData = 19;
+                P1Move = "ForwardAerial";
+            }
+
+            if (P1Move == "ForwardAerial" && P1FrameData <= 16 && P1FrameData >= 11)
+            {
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
+                P1CharBox.Image = Properties.Resources.Keycode_forward_air;
+                P1CharBox.Refresh();
+
+                P1HitX = P1X + P1Width;
+                P1HitY = P1Y + 250;
+                P1HitWidth = 70;
+                P1HitHeight = 70;
+                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
+                {
+                    P2Health -= 5;
+                    P2CharBox.Refresh();
+                    P2Stun = 8;
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true && P2Stun == 0)
+                {
+
+                    P2Health -= 3;
+                    P2CharBox.Refresh();
+                    P2Stun = 8;
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Parry == true && P2Stun == 0)
+                {
+                    P2Health -= 0;
+                    P2CharBox.Refresh();
+                    P2Stun = 8;
+                }
+            }
+            if (P1Move == "ForwardAerial" && P1FrameData < 11)
+            {
+                P1CharBox.Size = new Size(P1Width, P1Height);
+                P1CharBox.Image = Properties.Resources.Keycode_passive;
+                P1CharBox.Refresh();
+                Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
+            }
+            #endregion
+
+            #region NeutralAerial
+            if (mDown == true && rArrowDown == false && P1FrameData == 0 && P1Y < 150)
+            {
+                P1FrameData = 20;
+                P1Move = "NeutralAerial";
+            }
+
+            if (P1Move == "NeutralAerial" && P1FrameData <= 16 && P1FrameData >= 11)
+            {
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
+                P1CharBox.Image = Properties.Resources.Keycode_neutral_air;
+                P1CharBox.Refresh();
+
+                P1HitX = P1X + P1Width;
+                P1HitY = P1Y + 100;
+                P1HitWidth = 50;
+                P1HitHeight = 180;
+                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
+                {
+                    P2Health -= 3;
+                    P2CharBox.Refresh();
+                    P2Stun = 7;
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true && P2Stun == 0)
+                {
+
+                    P2Health -= 2;
+                    P2CharBox.Refresh();
+                    P2Stun = 7;
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Parry == true && P2Stun == 0)
+                {
+                    P2Health -= 0;
+                    P2CharBox.Refresh();
+                    P2Stun = 7;
+                }
+            }
+            if (P1Move == "NeutralAerial" && P1FrameData < 11)
+            {
+                P1CharBox.Size = new Size(P1Width, P1Height);
+                P1CharBox.Image = Properties.Resources.Keycode_passive;
+                P1CharBox.Refresh();
+                Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
+            }
+            #endregion
+
+            #region NeutralHeavy
+            if (spaceDown == true && rArrowDown == false && P1FrameData == 0 && P1Y >= 150)
+            {
+                P1FrameData = 26;
+                P1Move = "NeutralHeavy";
+            }
+
+            if (P1Move == "NeutralHeavy" && P1FrameData <= 20 && P1FrameData >= 13)
+            {
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
+                P1CharBox.Image = Properties.Resources.Keycode_heavy_neutral;
+                P1CharBox.Refresh();
+
+                P1HitX = P1X + P1Width;
+                P1HitY = P1Y + 210;
+                P1HitWidth = 100;
+                P1HitHeight = 100;
+                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
+                {
+                    P2Health -= 8;
+                    P2CharBox.Refresh();
+                    P2Stun = 9;
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true && P2Stun == 0)
+                {
+
+                    P2Health -= 4;
+                    P2CharBox.Refresh();
+                    P2Stun = 9;
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Parry == true && P2Stun == 0)
+                {
+                    P2Health -= 0;
+                    P2CharBox.Refresh();
+                    P2Stun = 9;
+                }
+            }
+            if (P1Move == "NeutralHeavy" && P1FrameData < 13)
+            {
+                P1CharBox.Size = new Size(P1Width, P1Height);
+                P1CharBox.Image = Properties.Resources.Keycode_passive;
+                P1CharBox.Refresh();
+                Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
+            }
+            #endregion
+
+            #region ForwardHeavy
+            if (spaceDown == true && rArrowDown == true && P1FrameData == 0 && P1Y >= 150)
+            {
+                P1FrameData = 26;
+                P1Move = "ForwardHeavy";
+            }
+
+            if (P1Move == "ForwardHeavy" && P1FrameData <= 22 && P1FrameData >= 16)
+            {
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
+                P1CharBox.Image = Properties.Resources.Keycode_heavy_forward;
+                P1CharBox.Refresh();
+
+                P1HitX = P1X + P1Width;
+                P1HitY = P1Y - 40;
+                P1HitWidth = 100;
+                P1HitHeight = 60;
+                Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
+
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
+                {
+                    P2Health -= 9;
+                    P2CharBox.Refresh();
+                    P2Stun = 10;
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == true && P2Stun == 0)
+                {
+
+                    P2Health -= 5;
+                    P2CharBox.Refresh();
+                    P2Stun = 10;
+                }
+                if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Parry == true && P2Stun == 0)
+                {
+                    P2Health -= 0;
+                    P2CharBox.Refresh();
+                    P2Stun = 9;
+                }
+            }
+            if (P1Move == "ForwardHeavy" && P1FrameData < 16)
+            {
+                P1CharBox.Size = new Size(P1Width, P1Height);
+                P1CharBox.Image = Properties.Resources.Keycode_passive;
+                P1CharBox.Refresh();
+                Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
+            }
+            #endregion
+
+            if (P1FrameData > 0)
+            {
+                P1FrameData--;
+            }
+            if (P1Stun > 0)
+            {
+                P1Stun--;
+            }
+            if (P1FrameData == 0)
+            {
+                P1Move = "none";
+            }
+        }
     }
 }

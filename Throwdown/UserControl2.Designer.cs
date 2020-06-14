@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(characterSelectScreen));
             this.tempButton = new System.Windows.Forms.Button();
             this.HitboxSelect = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.KeycodeSelect = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.P1PreviewBox = new System.Windows.Forms.PictureBox();
@@ -66,15 +66,16 @@
             this.HitboxSelect.UseVisualStyleBackColor = true;
             this.HitboxSelect.Click += new System.EventHandler(this.tempChar_Click);
             // 
-            // button1
+            // KeycodeSelect
             // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Location = new System.Drawing.Point(475, 175);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 100);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "char 2";
-            this.button1.UseVisualStyleBackColor = true;
+            this.KeycodeSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.KeycodeSelect.Location = new System.Drawing.Point(475, 175);
+            this.KeycodeSelect.Name = "KeycodeSelect";
+            this.KeycodeSelect.Size = new System.Drawing.Size(100, 100);
+            this.KeycodeSelect.TabIndex = 2;
+            this.KeycodeSelect.Text = "Keycode";
+            this.KeycodeSelect.UseVisualStyleBackColor = true;
+            this.KeycodeSelect.Click += new System.EventHandler(this.KeycodeSelect_Click);
             // 
             // button2
             // 
@@ -197,7 +198,7 @@
             this.Controls.Add(this.P1PreviewBox);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.KeycodeSelect);
             this.Controls.Add(this.HitboxSelect);
             this.Controls.Add(this.tempButton);
             this.Name = "characterSelectScreen";
@@ -213,7 +214,7 @@
 
         private System.Windows.Forms.Button tempButton;
         private System.Windows.Forms.Button HitboxSelect;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button KeycodeSelect;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox P1PreviewBox;
