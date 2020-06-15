@@ -110,12 +110,12 @@
             // 
             // P2CharBox
             // 
-            this.P2CharBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.P2CharBox.BackColor = System.Drawing.Color.Transparent;
             this.P2CharBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.P2CharBox.Location = new System.Drawing.Point(700, 150);
             this.P2CharBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.P2CharBox.Name = "P2CharBox";
+            this.P2CharBox.Padding = new System.Windows.Forms.Padding(0, 100, 0, 0);
             this.P2CharBox.Size = new System.Drawing.Size(160, 300);
             this.P2CharBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.P2CharBox.TabIndex = 2;
@@ -123,7 +123,6 @@
             // 
             // P1CharBox
             // 
-            this.P1CharBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.P1CharBox.BackColor = System.Drawing.Color.Transparent;
             this.P1CharBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.P1CharBox.Location = new System.Drawing.Point(50, 160);
