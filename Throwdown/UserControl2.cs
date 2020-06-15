@@ -44,6 +44,7 @@ namespace Throwdown
         private void KeycodeSelect_Click(object sender, EventArgs e)
         {
             Form1.P1Character = "Keycode";
+            Form1.P2Character = "Keycode";
         }
     }
 }

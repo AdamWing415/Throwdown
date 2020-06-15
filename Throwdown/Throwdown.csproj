@@ -198,9 +198,6 @@
     <None Include="Resources\P2Keycode neutral air.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\P2Keycode heavy neutral.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\P2Keycode heavy forward.png" />
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +259,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Keycode walk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2Keycode heavy neutral.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
