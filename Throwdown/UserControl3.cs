@@ -98,8 +98,8 @@ namespace Throwdown
 
         private void gameScreen_Load(object sender, EventArgs e)
         {
-            gameScreenbackground.SendToBack();
-            gameScreenbackground.Visible = true;
+            //gameScreenbackground.SendToBack();
+            //gameScreenbackground.Visible = true;
 
             if (Form1.P1Character == "Hitbox")
             {
