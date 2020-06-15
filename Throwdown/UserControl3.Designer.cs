@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.gametimer = new System.Windows.Forms.Timer(this.components);
             this.inputBox = new System.Windows.Forms.TextBox();
-            this.testlabel = new System.Windows.Forms.Label();
             this.pauseScreen = new System.Windows.Forms.Label();
             this.continueButton = new System.Windows.Forms.Button();
             this.quitButton = new System.Windows.Forms.Button();
             this.P2CharBox = new System.Windows.Forms.PictureBox();
             this.P1CharBox = new System.Windows.Forms.PictureBox();
+            this.healthBackdrop = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.P2CharBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.P1CharBox)).BeginInit();
             this.SuspendLayout();
@@ -57,22 +57,13 @@
             this.inputBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyDown);
             this.inputBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyUp);
             // 
-            // testlabel
-            // 
-            this.testlabel.AutoSize = true;
-            this.testlabel.Location = new System.Drawing.Point(400, 73);
-            this.testlabel.Name = "testlabel";
-            this.testlabel.Size = new System.Drawing.Size(46, 17);
-            this.testlabel.TabIndex = 3;
-            this.testlabel.Text = "label1";
-            // 
             // pauseScreen
             // 
             this.pauseScreen.BackColor = System.Drawing.Color.DarkBlue;
             this.pauseScreen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pauseScreen.Font = new System.Drawing.Font("MV Boli", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pauseScreen.ForeColor = System.Drawing.Color.Goldenrod;
-            this.pauseScreen.Location = new System.Drawing.Point(247, 103);
+            this.pauseScreen.Location = new System.Drawing.Point(250, 100);
             this.pauseScreen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pauseScreen.Name = "pauseScreen";
             this.pauseScreen.Size = new System.Drawing.Size(375, 236);
@@ -89,7 +80,7 @@
             this.continueButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.continueButton.ForeColor = System.Drawing.Color.White;
             this.continueButton.Location = new System.Drawing.Point(344, 162);
-            this.continueButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.continueButton.Margin = new System.Windows.Forms.Padding(4);
             this.continueButton.Name = "continueButton";
             this.continueButton.Size = new System.Drawing.Size(189, 57);
             this.continueButton.TabIndex = 5;
@@ -107,7 +98,7 @@
             this.quitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quitButton.ForeColor = System.Drawing.Color.White;
             this.quitButton.Location = new System.Drawing.Point(344, 242);
-            this.quitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.quitButton.Margin = new System.Windows.Forms.Padding(4);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(189, 57);
             this.quitButton.TabIndex = 6;
@@ -141,22 +132,33 @@
             this.P1CharBox.TabIndex = 0;
             this.P1CharBox.TabStop = false;
             // 
+            // healthBackdrop
+            // 
+            this.healthBackdrop.BackColor = System.Drawing.Color.Transparent;
+            this.healthBackdrop.Location = new System.Drawing.Point(-7, 0);
+            this.healthBackdrop.Name = "healthBackdrop";
+            this.healthBackdrop.Size = new System.Drawing.Size(907, 60);
+            this.healthBackdrop.TabIndex = 8;
+            // 
             // gameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Purple;
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackgroundImage = global::Throwdown.Properties.Resources.gamescreen_Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.healthBackdrop);
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.pauseScreen);
-            this.Controls.Add(this.testlabel);
-            this.Controls.Add(this.P2CharBox);
             this.Controls.Add(this.P1CharBox);
+            this.Controls.Add(this.P2CharBox);
             this.Controls.Add(this.inputBox);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "gameScreen";
             this.Size = new System.Drawing.Size(900, 500);
             this.Load += new System.EventHandler(this.gameScreen_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.gameScreen_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.P2CharBox)).EndInit();
@@ -172,9 +174,9 @@
         private System.Windows.Forms.PictureBox P1CharBox;
         private System.Windows.Forms.TextBox inputBox;
         private System.Windows.Forms.PictureBox P2CharBox;
-        private System.Windows.Forms.Label testlabel;
         private System.Windows.Forms.Label pauseScreen;
         private System.Windows.Forms.Button continueButton;
         private System.Windows.Forms.Button quitButton;
+        private System.Windows.Forms.Label healthBackdrop;
     }
 }

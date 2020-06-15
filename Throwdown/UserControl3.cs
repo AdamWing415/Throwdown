@@ -16,6 +16,8 @@ namespace Throwdown
 
     public partial class gameScreen : UserControl
     {
+        SolidBrush healthBrush = new SolidBrush(Color.White);
+        Pen linePen = new Pen(Color.Black, 8);
 
         #region keyDownVariables
         bool wDown = false;
@@ -102,9 +104,17 @@ namespace Throwdown
         int P1JumpTimer = 0;
         int P2JumpTimer = 0;
 
+       
+
         bool paused = false;
+
+
+
+
+
         #endregion
 
+       
         public gameScreen()
         {
             InitializeComponent();
@@ -335,7 +345,6 @@ namespace Throwdown
                 P1X -= 10;
             }
 
-            testlabel.Text = Convert.ToString(P1Health) + "\n" + Convert.ToString(P2Health);
             Refresh();
 
 
@@ -364,7 +373,14 @@ namespace Throwdown
             }
             #endregion
         }
+        private void gameScreen_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.FillRectangle(healthBrush, 25, 25, P1Health * 3, 30);
+            e.Graphics.FillRectangle(healthBrush, 875 - P2Health*3, 25, P2Health * 3, 30);
 
+            e.Graphics.DrawRectangle(linePen, 25, 25, 300, 30);
+            e.Graphics.DrawRectangle(linePen, 575, 25, 300, 30);
+        }
 
         public void P1HitboxControls()
         {
@@ -766,6 +782,7 @@ namespace Throwdown
             if (P1Stun > 0)
             {
                 P1Stun--;
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
                 P1CharBox.Image = Properties.Resources.hitbox_hitstun;
                 P1CharBox.Refresh();
             }
@@ -1173,6 +1190,7 @@ namespace Throwdown
             if (P2Stun > 0)
             {
                 P2Stun--;
+                P2CharBox.Size = new Size(P2Width + 50, P2Height);
                 P2CharBox.Image = Properties.Resources.P2hitbox_hitstun;
                 P2CharBox.Refresh();
             }
@@ -1583,6 +1601,7 @@ namespace Throwdown
             if (P1Stun > 0)
             {
                 P1Stun--;
+                P1CharBox.Size = new Size(P1Width + 50, P1Height);
                 P1CharBox.Image = Properties.Resources.Keycode_hitstun;
                 P1CharBox.Refresh();
             }
@@ -1591,7 +1610,6 @@ namespace Throwdown
                 P1Move = "none";
             }
         }
-
         public void P2KeycodeControls()
         {
             Rectangle P2Hurtbox = new Rectangle(P2X, P2Y, P2Width, P2Height);
@@ -1984,6 +2002,7 @@ namespace Throwdown
             if (P2Stun > 0)
             {
                 P2Stun--;
+                P2CharBox.Size = new Size(P2Width + 50, P2Height);
                 P2CharBox.Image = Properties.Resources.P2Keycode_hitstun;
                 P2CharBox.Refresh();
             }

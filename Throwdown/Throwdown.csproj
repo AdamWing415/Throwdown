@@ -263,5 +263,8 @@
   <ItemGroup>
     <None Include="Resources\P2Keycode heavy neutral.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gamescreen Background.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
