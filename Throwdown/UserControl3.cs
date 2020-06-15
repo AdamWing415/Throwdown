@@ -93,14 +93,11 @@ namespace Throwdown
         public gameScreen()
         {
             InitializeComponent();
-            
         }
 
         private void gameScreen_Load(object sender, EventArgs e)
         {
-            //gameScreenbackground.SendToBack();
-            //gameScreenbackground.Visible = true;
-
+            
             if (Form1.P1Character == "Hitbox")
             {
                 P1X = 50;

@@ -110,6 +110,7 @@
             // 
             // P2CharBox
             // 
+            this.P2CharBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.P2CharBox.BackColor = System.Drawing.Color.Transparent;
             this.P2CharBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.P2CharBox.Location = new System.Drawing.Point(700, 150);
@@ -122,6 +123,7 @@
             // 
             // P1CharBox
             // 
+            this.P1CharBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.P1CharBox.BackColor = System.Drawing.Color.Transparent;
             this.P1CharBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.P1CharBox.Location = new System.Drawing.Point(50, 160);
@@ -144,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.healthBackdrop);
             this.Controls.Add(this.quitButton);
