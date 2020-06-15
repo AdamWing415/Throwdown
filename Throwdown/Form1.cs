@@ -22,12 +22,16 @@ namespace Throwdown
 
         private void Form1_Load(object sender, EventArgs e)
         {
-       
+           
+
             Form Form1 = this.FindForm();
             Form1.Controls.Remove(this);
             TitleScreen ts = new TitleScreen();
             Form1.Controls.Add(ts);
             ts.Location = new Point((Form1.Width - ts.Width) / 2, (Form1.Height - ts.Height) / 2);
+
+            gameScreenbackground.Location = new Point((Form1.Width - gameScreenbackground.Width) / 2, (Form1.Height - gameScreenbackground.Height) / 2);
+           
         }
 
     }

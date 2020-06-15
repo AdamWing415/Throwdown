@@ -83,35 +83,10 @@ namespace Throwdown
         int P1Force = 0;
         int P2Force = 0;
 
-        private void continueButton_Click(object sender, EventArgs e)
-        {
-            paused = false;
-            gametimer.Start();
-        }
-
-        private void quitButton_Click(object sender, EventArgs e)
-        {
-            paused = false;
-            gametimer.Start();
-            Form Form1 = this.FindForm();
-            Form1.Controls.Remove(this);
-            TitleScreen ts = new TitleScreen();
-            Form1.Controls.Add(ts);
-            ts.Location = new Point((Form1.Width - ts.Width) / 2, (Form1.Height - ts.Height) / 2);
-
-        }
-
         int P1JumpTimer = 0;
         int P2JumpTimer = 0;
 
-       
-
         bool paused = false;
-
-
-
-
-
         #endregion
 
        
@@ -123,7 +98,8 @@ namespace Throwdown
 
         private void gameScreen_Load(object sender, EventArgs e)
         {
-            
+            gameScreenbackground.SendToBack();
+            gameScreenbackground.Visible = true;
 
             if (Form1.P1Character == "Hitbox")
             {
@@ -163,6 +139,7 @@ namespace Throwdown
                 P2CharBox.Size = new Size(P2Width, P2Height);
                 P2CharBox.Location = new Point(P2X, P2Y);
             }
+
             if (Form1.P2Character == "Keycode")
             {
                 P2X = 690;
@@ -178,6 +155,24 @@ namespace Throwdown
 
                 this.inputBox.Focus();
         }
+        private void continueButton_Click(object sender, EventArgs e)
+        {
+            paused = false;
+            gametimer.Start();
+        }
+
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+            paused = false;
+            gametimer.Start();
+            Form Form1 = this.FindForm();
+            Form1.Controls.Remove(this);
+            TitleScreen ts = new TitleScreen();
+            Form1.Controls.Add(ts);
+            ts.Location = new Point((Form1.Width - ts.Width) / 2, (Form1.Height - ts.Height) / 2);
+
+        }
+
         private void gameScreen_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -330,7 +325,8 @@ namespace Throwdown
             P1CharBox.Location = new Point(P1X, P1Y);
             P2CharBox.Location = new Point(P2X, P2Y);
 
-            //player colision
+            //player collision
+            #region Collision
             if (P1X + P1Width - 20 >= P2X && P1X > 0 && P2X < 750)
             {
                 P1X -= 10;
@@ -346,7 +342,7 @@ namespace Throwdown
             }
 
             Refresh();
-
+            #endregion
 
             #region pausing
             if (paused == true)
