@@ -37,6 +37,9 @@
             this.P2CharBox = new System.Windows.Forms.PictureBox();
             this.P1CharBox = new System.Windows.Forms.PictureBox();
             this.healthBackdrop = new System.Windows.Forms.Label();
+            this.P1Label = new System.Windows.Forms.Label();
+            this.P2label = new System.Windows.Forms.Label();
+            this.RoundLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.P2CharBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.P1CharBox)).BeginInit();
             this.SuspendLayout();
@@ -141,12 +144,54 @@
             this.healthBackdrop.Size = new System.Drawing.Size(907, 60);
             this.healthBackdrop.TabIndex = 8;
             // 
+            // P1Label
+            // 
+            this.P1Label.BackColor = System.Drawing.Color.Transparent;
+            this.P1Label.Font = new System.Drawing.Font("PMingLiU-ExtB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.P1Label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.P1Label.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.P1Label.Location = new System.Drawing.Point(5, 60);
+            this.P1Label.Name = "P1Label";
+            this.P1Label.Size = new System.Drawing.Size(167, 55);
+            this.P1Label.TabIndex = 9;
+            this.P1Label.Text = "Player 1";
+            this.P1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // P2label
+            // 
+            this.P2label.BackColor = System.Drawing.Color.Transparent;
+            this.P2label.Font = new System.Drawing.Font("PMingLiU-ExtB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.P2label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.P2label.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.P2label.Location = new System.Drawing.Point(730, 60);
+            this.P2label.Name = "P2label";
+            this.P2label.Size = new System.Drawing.Size(165, 55);
+            this.P2label.TabIndex = 10;
+            this.P2label.Text = "Player 2";
+            this.P2label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // RoundLabel
+            // 
+            this.RoundLabel.BackColor = System.Drawing.Color.Transparent;
+            this.RoundLabel.Font = new System.Drawing.Font("PMingLiU-ExtB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoundLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RoundLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RoundLabel.Location = new System.Drawing.Point(350, 10);
+            this.RoundLabel.Name = "RoundLabel";
+            this.RoundLabel.Size = new System.Drawing.Size(200, 55);
+            this.RoundLabel.TabIndex = 11;
+            this.RoundLabel.Text = "Round";
+            this.RoundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // gameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.RoundLabel);
+            this.Controls.Add(this.P2label);
+            this.Controls.Add(this.P1Label);
             this.Controls.Add(this.healthBackdrop);
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.continueButton);
@@ -178,5 +223,8 @@
         private System.Windows.Forms.Button continueButton;
         private System.Windows.Forms.Button quitButton;
         private System.Windows.Forms.Label healthBackdrop;
+        private System.Windows.Forms.Label P1Label;
+        private System.Windows.Forms.Label P2label;
+        private System.Windows.Forms.Label RoundLabel;
     }
 }
