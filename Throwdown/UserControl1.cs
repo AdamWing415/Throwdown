@@ -19,7 +19,8 @@ namespace Throwdown
 
         private void TitleScreen_Load(object sender, EventArgs e)
         {
-            
+            Form1.P1Character = "unselected";
+            Form1.P2Character = "unselected";
         }
 
         private void quitButton_Click(object sender, EventArgs e)
@@ -29,11 +30,14 @@ namespace Throwdown
 
         private void playButton_Click(object sender, EventArgs e)
         {
+
             Form Form1 = this.FindForm();
             Form1.Controls.Remove(this);
             characterSelectScreen css = new characterSelectScreen();
             Form1.Controls.Add(css);
             css.Location = new Point((Form1.Width - css.Width) / 2, (Form1.Height - css.Height) / 2);
+
+            
         }
 
        

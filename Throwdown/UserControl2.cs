@@ -46,5 +46,11 @@ namespace Throwdown
             Form1.P1Character = "Keycode";
             Form1.P2Character = "Keycode";
         }
+
+        private void VoidSelectButton_Click(object sender, EventArgs e)
+        {
+            Form1.P1Character = "Void";
+            Form1.P2Character = "Void";
+        }
     }
 }

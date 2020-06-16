@@ -33,7 +33,7 @@
             this.HitboxSelect = new System.Windows.Forms.Button();
             this.KeycodeSelect = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.VoidSelectButton = new System.Windows.Forms.Button();
             this.P1PreviewBox = new System.Windows.Forms.PictureBox();
             this.P2PreviewBox = new System.Windows.Forms.PictureBox();
             this.P1Label = new System.Windows.Forms.Label();
@@ -87,15 +87,16 @@
             this.button2.Text = "maybe char 4";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // VoidSelectButton
             // 
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button3.Location = new System.Drawing.Point(325, 325);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 100);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "char 3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.VoidSelectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.VoidSelectButton.Location = new System.Drawing.Point(325, 325);
+            this.VoidSelectButton.Name = "VoidSelectButton";
+            this.VoidSelectButton.Size = new System.Drawing.Size(100, 100);
+            this.VoidSelectButton.TabIndex = 4;
+            this.VoidSelectButton.Text = "Void";
+            this.VoidSelectButton.UseVisualStyleBackColor = true;
+            this.VoidSelectButton.Click += new System.EventHandler(this.VoidSelectButton_Click);
             // 
             // P1PreviewBox
             // 
@@ -196,7 +197,7 @@
             this.Controls.Add(this.P1Label);
             this.Controls.Add(this.P2PreviewBox);
             this.Controls.Add(this.P1PreviewBox);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.VoidSelectButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.KeycodeSelect);
             this.Controls.Add(this.HitboxSelect);
@@ -216,7 +217,7 @@
         private System.Windows.Forms.Button HitboxSelect;
         private System.Windows.Forms.Button KeycodeSelect;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button VoidSelectButton;
         private System.Windows.Forms.PictureBox P1PreviewBox;
         private System.Windows.Forms.PictureBox P2PreviewBox;
         private System.Windows.Forms.Label P1Label;

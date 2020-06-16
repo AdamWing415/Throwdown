@@ -264,7 +264,79 @@
     <None Include="Resources\P2Keycode heavy neutral.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\P2void forward air.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2void neutral air.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2Void forward heavy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2Void neutral heavy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2Void hitstun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2Void parry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2Void block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2void jump.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2void forward light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2void neutral light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2Void walk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P2Void passive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\void forward air.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\void neutral air.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Void forward heavy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Void neutral heavy.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\gamescreen Background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Void hitstun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Void parry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Void block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\void jump.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\void forward light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\void neutral light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Void walk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Void passive.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
