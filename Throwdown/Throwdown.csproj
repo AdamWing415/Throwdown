@@ -338,5 +338,14 @@
   <ItemGroup>
     <None Include="Resources\Void passive.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Void select image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keycode select image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hitbox select image.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

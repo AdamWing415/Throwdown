@@ -193,6 +193,16 @@ namespace Throwdown.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hitbox_select_image {
+            get {
+                object obj = ResourceManager.GetObject("hitbox_select_image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hitbox_walk {
             get {
                 object obj = ResourceManager.GetObject("hitbox_walk", resourceCulture);
@@ -306,6 +316,16 @@ namespace Throwdown.Properties {
         internal static System.Drawing.Bitmap Keycode_passive {
             get {
                 object obj = ResourceManager.GetObject("Keycode_passive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keycode_select_image {
+            get {
+                object obj = ResourceManager.GetObject("Keycode_select_image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -806,6 +826,16 @@ namespace Throwdown.Properties {
         internal static System.Drawing.Bitmap Void_passive {
             get {
                 object obj = ResourceManager.GetObject("Void_passive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Void_select_image {
+            get {
+                object obj = ResourceManager.GetObject("Void_select_image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
