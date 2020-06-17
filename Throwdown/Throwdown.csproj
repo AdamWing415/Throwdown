@@ -72,12 +72,6 @@
     <Compile Include="UserControl3.Designer.cs">
       <DependentUpon>UserControl3.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl4.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControl4.Designer.cs">
-      <DependentUpon>UserControl4.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,9 +93,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl3.resx">
       <DependentUpon>UserControl3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl4.resx">
-      <DependentUpon>UserControl4.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -361,6 +352,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PointFull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\controls.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

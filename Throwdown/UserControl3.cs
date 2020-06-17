@@ -18,11 +18,16 @@ namespace Throwdown
 
     public partial class gameScreen : UserControl
     {
+        //Creating instance of the brushes and pens that will be used
         SolidBrush healthBrush = new SolidBrush(Color.White);
         Pen linePen = new Pen(Color.Black, 8);
+
+        //creating a stopwatch used for the first countdown
         Stopwatch stopWatch = new Stopwatch();
 
         #region keyDownVariables
+        //boolean variables used for keydown events
+
         bool wDown = false;
         bool aDown = false;
         bool sDown = false;
@@ -48,6 +53,7 @@ namespace Throwdown
 
         #region keyPressVariable
 
+        //boolean variables used for keypress event
         bool sPress = false;
         bool downArrowPress = false;
 
@@ -55,11 +61,14 @@ namespace Throwdown
 
         #region GeneralVariables
         //NOTE:  ground is 50 pixels off screen bottom
+        //use framedata for both hit stun and input lag?
+
+        //Initializing player one variables
         int P1X, P1Y;
         int P1Width, P1Height;
         int P1HitX, P1HitY;
-        int P1HitWidth, P1HitHeight;
-        //use framedata for both hit stun and input lag?
+        int P1HitWidth, P1HitHeight;     
+        
         int P1FrameData = 0;
         string P1Move;
         bool P1Blocking = false;
@@ -68,10 +77,12 @@ namespace Throwdown
         int P1Health = 100;
         int P1Stun;
 
+        //Initializing player two variables
         int P2X, P2Y;
         int P2Width, P2Height;
         int P2HitX, P2HitY;
         int P2HitWidth, P2HitHeight;
+
         int P2FrameData = 0;
         bool P2Blocking = false;
         bool P2Parry;
@@ -80,20 +91,24 @@ namespace Throwdown
         int P2Health = 100;
         int P2Stun;
 
+        //asigning some general variables for rounds and points
         int round = 1;
         int storedRound = 1;
         int pointP1 = 0;
         int pointP2 = 0;
 
+        //assgning variables for jump mechanics
         int P1Force = 0;
         int P2Force = 0;
 
         int P1JumpTimer = 0;
         int P2JumpTimer = 0;
 
+        //setting the default draw state of each player character
         string P1Drawing = "passive";
         string P2Drawing = "passive";
 
+        //boolean for weather the game is in a paused or unpaused state
         bool paused = false;
 
         #endregion
@@ -101,6 +116,7 @@ namespace Throwdown
 
         public gameScreen()
         {
+            //run initialization for the components on the form
             InitializeComponent();
         }
 
@@ -110,8 +126,10 @@ namespace Throwdown
             //This is technically an array usage, yep, this is it
             ((Form1)this.Parent).Controls.Find("inputCover", true)[0].Visible = true;
 
+            //if player one character is hitbox
             if (Form1.P1Character == "Hitbox")
             {
+                //set location and size for the character
                 P1X = 50;
                 P1Y = 150;
                 P1Width = 160;
@@ -119,8 +137,10 @@ namespace Throwdown
                 P1WalkCycle = 35;
             }
 
+            //if player one character is keycode
             if (Form1.P1Character == "Keycode")
             {
+                //set location and size for the character
                 P1X = 50;
                 P1Y = 160;
                 P1Width = 160;
@@ -128,8 +148,10 @@ namespace Throwdown
                 P1WalkCycle = 30;
             }
 
+            //if player one character is void
             if (Form1.P1Character == "Void")
             {
+                //set location and size for the character
                 P1X = 50;
                 P1Y = 150;
                 P1Width = 160;
@@ -137,8 +159,10 @@ namespace Throwdown
                 P1WalkCycle = 45;
             }
 
+            //if player two character is hitbox
             if (Form1.P2Character == "Hitbox")
             {
+                //set location and size for the character
                 P2X = 490;
                 P2Y = 150;
                 P2Width = 160;
@@ -147,8 +171,10 @@ namespace Throwdown
 
             }
 
+            //if player two character is keycode
             if (Form1.P2Character == "Keycode")
             {
+                //set location and size for the character
                 P2X = 490;
                 P2Y = 160;
                 P2Width = 160;
@@ -156,8 +182,10 @@ namespace Throwdown
                 P2WalkCycle = 30;
             }
 
+            //if player two character is void
             if (Form1.P2Character == "Void")
             {
+                //set location and size for the character
                 P2X = 490;
                 P2Y = 150;
                 P2Width = 160;
@@ -166,15 +194,22 @@ namespace Throwdown
                 
             }
 
+            //focus the input box to recieve player inputs
             this.inputBox.Focus();
         }
+
+        //if continue button in pause menu is pressed
         private void continueButton_Click(object sender, EventArgs e)
         {
+            //unpause
             paused = false;
             gametimer.Start();
         }
+
+        //if the quit button is pressed or if the game has ended
         private void quitButton_Click(object sender, EventArgs e)
         {
+            //unpause and go to main screen
             paused = false;
             gametimer.Start();
             Form Form1 = this.FindForm();
@@ -188,6 +223,7 @@ namespace Throwdown
 
         private void gameScreen_KeyDown(object sender, KeyEventArgs e)
         {
+            //if there is a user input set that boolean to true
             switch (e.KeyCode)
             {
                 //p1 keys
@@ -252,6 +288,7 @@ namespace Throwdown
         }
         private void gameScreen_KeyUp(object sender, KeyEventArgs e)
         {
+            //on release of user input revert the boolean to false
             switch (e.KeyCode)
             {
                 //p1 keys
@@ -315,55 +352,97 @@ namespace Throwdown
             }
         }
 
+        //when a game tick occurs
         private void gametimer_Tick(object sender, EventArgs e)
         {
+            //start the stopwatch if it is not already started
             stopWatch.Start();
+
+            //hide the countdown timer lable
             countWin.Hide();
 
+            //if a players health reaches or drops below 0
             if (P1Health <=0 || P2Health <= 0)
             {
+                //add one to round number
                 round++;   
+
+                //if the dead player is player 2
                 if (P2Health <= 0)
                 {
+                    //player one recieves a point
                     pointP1++;
+
+                    //reset both players health to the max
                     P2Health = 100;
                     P1Health = 100;
                 }
+                //else if the dead player is not player 2
                 else
                 {
+                    //give player two one point
                     pointP2++;
+
+                    //reset both players health to the max
                     P2Health = 100;
                     P1Health = 100;
                 }
+
+                //if player one has one point
                 if (pointP1 == 1)
                 {
+                    //make the point be filled in
                     p1Point.Image = Properties.Resources.PointFull;
                 }
+
+                //if player two has one point
                 if (pointP2 == 1)
                 {
+                    //fill in the point
                     p2Point.Image = Properties.Resources.PointFull;
                 }
+
+                //else if player 1 OR player 2 has two points
                 else if (pointP1 == 2 || pointP2 == 2)
                 {
+                    //fill in the second point
                     winPoint.Image = Properties.Resources.PointFull;
                 }
+
+                //if 3 or more rounds have begun
                 if (round >= 3)
                 {
-                    
+                    //if player one has more points than player two and has atleast two points
                     if (pointP1 > pointP2 && pointP1 >= 2)
                     {
+                        //set text to player one wins
                         countWin.Text = "P1 Wins!!";
                     }
+
+                    //if player two has more points than player one and has atleast two points
                     else if (pointP2 > pointP1 && pointP2 >= 2)
                     {
+                        //set text to player two wins
                         countWin.Text = "P2 Wins!!";
                     }
+
+                    //set round number text to "Game"
                     RoundLabel.Text = $"Game";
+
+                    //Show countWin lable
                     countWin.Show();
+
+                    //refresh the screen
                     Refresh();
+
+                    //wait 5 seconds
                     Thread.Sleep(5000);
+
+                    //run the quit function
                     quitButton_Click(sender, e);
                 }
+
+                //else if it is not >= round 3 display the round number
                 else
                 {
                     RoundLabel.Text = $"Round {round}";
@@ -373,34 +452,44 @@ namespace Throwdown
             }
 
 
-
+            //if it is that start of the game or it is a new round
             if ((stopWatch.ElapsedMilliseconds < 1000 && round == 1 && P1Health == 100 && P2Health == 100) || round != storedRound)
             {
+                //run the countdown
                 countdown();
             }
 
+            //if player 1 is hitbox run hitbox's for player one function
             if (Form1.P1Character == "Hitbox")
             {
                 P1HitboxControls();
             }
+
+            //if player 1 is keycode run keycode's for player one function
             if (Form1.P1Character == "Keycode")
             {
                 P1KeycodeControls();
             }
+
+            //if player 1 is void run void's for player one function
             if (Form1.P1Character == "Void")
             {
                 P1VoidControls();
             }
 
-
+            //if player 2 is hitbox run hitbox's for player two function
             if (Form1.P2Character == "Hitbox")
             {
                 P2HitboxControls();
             }
+
+            //if player 2 is keycode run keycode's for player two function
             if (Form1.P2Character == "Keycode")
             {
                 P2KeycodeControls();
             }
+
+            //if player 2 is void run void's for player two function
             if (Form1.P2Character == "Void")
             {
                 P2VoidControls();
@@ -426,8 +515,11 @@ namespace Throwdown
             #endregion
 
             #region pausing
+
+            //if paused boolean has been set to true
             if (paused == true)
             {
+                //pause the game and show pause menu
                 escapeDown = false;
                 continueButton.Visible = true;
                 quitButton.Visible = true;
@@ -437,12 +529,17 @@ namespace Throwdown
                 gametimer.Stop();
                 continueButton.Focus();
             }
+
+            //if the pause boolean has been set to false
             if (paused == false)
             {
+                //hide the pause menu
                 pauseScreen.Visible = false;
                 continueButton.Visible = false;
                 quitButton.Visible = false;
                 inputBox.Focus();
+
+                //if escape is pushed set paused to true
                 if (escapeDown == true)
                 {
                     paused = true;
@@ -452,11 +549,18 @@ namespace Throwdown
 
         }
 
+        //countdown function
         private void countdown()
         {
+
+            //set the storedRound variable to the round number
             storedRound = round;
+
+            //reset players to starting position
             P1X = 50;
             P2X = 490;
+
+            //pause game and 3, 2, 1 , go text 
             gametimer.Stop();
             countWin.Show();
             countWin.Text = "3";
@@ -471,17 +575,23 @@ namespace Throwdown
             countWin.Text = "GO!";
             Thread.Sleep(100);
             countWin.Refresh();
+
+            //unpause game
             gametimer.Start();
         }
+
+        //graphics & drawing & paint function
         private void gameScreen_Paint(object sender, PaintEventArgs e)
         {
+            //create healthbar
             e.Graphics.FillRectangle(healthBrush, 25, 25, P1Health * 2, 30);
             e.Graphics.FillRectangle(healthBrush, 635 - P2Health * 2, 25, P2Health * 2, 30);
 
+            //create health bar outline
             e.Graphics.DrawRectangle(linePen, 25, 25, 200, 30);
             e.Graphics.DrawRectangle(linePen, 435, 25, 200, 30);
 
-
+            //if p2 character is void draw image for character depending on state
             if (Form1.P2Character == "Void")
             {
                 switch (P2Drawing)
@@ -526,6 +636,7 @@ namespace Throwdown
                 }
             }
 
+            //if p1 character is void draw image for character depending on state
             if (Form1.P1Character == "Void")
             {
                 switch (P1Drawing)
@@ -571,6 +682,7 @@ namespace Throwdown
             }
 
 
+            //if p2 character is hitbox draw image for character depending on state
             if (Form1.P2Character == "Hitbox")
             {
                 switch (P2Drawing)
@@ -615,6 +727,7 @@ namespace Throwdown
                 }
             }
 
+            //if p1 character is hitbox draw image for character depending on state
             if (Form1.P1Character == "Hitbox")
             {
                 switch (P1Drawing)
@@ -660,6 +773,7 @@ namespace Throwdown
             }
 
 
+            //if p2 character is keycode draw image for character depending on state
             if (Form1.P2Character == "Keycode")
             {
                 switch (P2Drawing)
@@ -704,6 +818,7 @@ namespace Throwdown
                 }
             }
 
+            //if p1 character is keycode draw image for character depending on state
             if (Form1.P1Character == "Keycode")
             {
                 switch (P1Drawing)
@@ -749,6 +864,7 @@ namespace Throwdown
             }
         }
 
+        //movement and attacks for hitbox player one
         public void P1HitboxControls()
         {
             if (P1Stun > 0)
@@ -756,18 +872,19 @@ namespace Throwdown
                 P1FrameData = P1Stun;
             }
 
-
+            //Draw the collision collider for the player
             Rectangle P2Hurtbox = new Rectangle(P2X, P2Y, P2Width, P2Height);
             Rectangle P1Hurtbox = new Rectangle(P1X, P1Y, P1Width, P1Height);
 
             #region blocking
-            //blocking
+            //if in blocking state 
             if (downArrowDown == true && P1FrameData == 0)
             {
                 P1Blocking = true;
                 P1Drawing = "block";
                 P1FrameData = 1;
             }
+            //if in parrying
             else if (downArrowPress == true && P1FrameData < 2)
             {
                 P1Blocking = false;
@@ -783,9 +900,10 @@ namespace Throwdown
             #endregion
 
             #region walking
-            //walking forward
+            //if in walking forward state
             if (rArrowDown == true && P1X < 750 && P1FrameData == 0)
             {
+                //move forward 7 pixels and play walking animation
                 P1X += 7;
                 if (P1WalkCycle > 17)
                 {
@@ -802,9 +920,10 @@ namespace Throwdown
                     P1WalkCycle--;
                 }
             }
-            //walking backwards
+            //if in walking backwards state
             if (lArrowDown == true && P1X > 0 && P1FrameData == 0)
             {
+                //move backwards 6 pixels and play walking animation
                 P1X -= 6;
                 if (P1WalkCycle > 17)
                 {
@@ -825,7 +944,9 @@ namespace Throwdown
 
             #region Jump
             bool jump;
-
+            //if jumping go up until a cerain high with acceleration 
+            //set jump state to true to avoid double jumps 
+            //go back down until on ground then set ju,p state to false 
             if (P1JumpTimer == 0 && P1Y <= 140)
             {
                 jump = true;
@@ -864,14 +985,15 @@ namespace Throwdown
             }
             #endregion
 
-            //put all moves here
+            //Attack moves
             #region lightNeutral
+            //if player preforms a light attack set them to lightneutral state
             if (mDown == true && rArrowDown == false && P1FrameData == 0 && P1Y >= 150)
             {
                 P1FrameData = 20;
                 P1Move = "lightNeutral";
             }
-
+            //Extend hitbox to be around the light attack
             if (P1Move == "lightNeutral" && P1FrameData <= 16 && P1FrameData >= 8)
             {
                 P1Drawing = "lightNeutral";
@@ -882,6 +1004,7 @@ namespace Throwdown
                 P1HitHeight = 40;
                 Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
 
+                //if there is a collsion do damage and stun the opposing player
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
                 {
                     P2Health -= 3;
@@ -899,6 +1022,7 @@ namespace Throwdown
                 }
 
             }
+            //if stunned dont do attack
             if (P1Move == "lightNeutral" && P1FrameData < 8)
             {
                 P1Drawing = "passive";
@@ -907,12 +1031,14 @@ namespace Throwdown
             #endregion
 
             #region Forwardlight
+            //if a forward light attack is preformed set state to forward light attack
             if (mDown == true && rArrowDown == true && P1FrameData == 0 && P1Y >= 150)
             {
                 P1FrameData = 26;
                 P1Move = "lightForward";
             }
 
+            ////Extend hitbox to be around the attack
             if (P1Move == "lightForward" && P1FrameData <= 18 && P1FrameData >= 11)
             {
                 P1Drawing = "lightForward";
@@ -923,6 +1049,7 @@ namespace Throwdown
                 P1HitHeight = 120;
                 Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
 
+                //if there is a collsion do damage and stun the opposing player
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
                 {
                     P2Health -= 4;
@@ -940,6 +1067,7 @@ namespace Throwdown
                 }
 
             }
+            //if stunned dont do attack
             if (P1Move == "lightForward" && P1FrameData < 11)
             {
                 P1Drawing = "passive";
@@ -948,12 +1076,14 @@ namespace Throwdown
             #endregion
 
             #region ForwardAerial
+            //if player preforms a aerial attack in the forward direction set state to ForwardAerial
             if (mDown == true && rArrowDown == true && P1FrameData == 0 && P1Y < 150)
             {
                 P1FrameData = 19;
                 P1Move = "ForwardAerial";
             }
 
+            //Adjust hitbox to fit the attack
             if (P1Move == "ForwardAerial" && P1FrameData <= 16 && P1FrameData >= 11)
             {
                 P1Drawing = "forwardAerial";
@@ -964,6 +1094,7 @@ namespace Throwdown
                 P1HitHeight = 60;
                 Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
 
+                //if there is a collsion do damage and stun the other player
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
                 {
                     P2Health -= 5;
@@ -980,6 +1111,7 @@ namespace Throwdown
                     P2Stun = 7;
                 }
             }
+            //if stunned dont do attack
             if (P1Move == "ForwardAerial" && P1FrameData < 11)
             {
                 P1Drawing = "passive";
@@ -988,12 +1120,14 @@ namespace Throwdown
             #endregion
 
             #region NeutralAerial
+            //if player inputs a neutral aerial attack set state to NeutralAerial
             if (mDown == true && rArrowDown == false && P1FrameData == 0 && P1Y < 150)
             {
                 P1FrameData = 23;
                 P1Move = "NeutralAerial";
             }
 
+            //Adjust hitbox to fit the attack
             if (P1Move == "NeutralAerial" && P1FrameData <= 17 && P1FrameData >= 13)
             {
                 P1Drawing = "neutralAerial";
@@ -1004,6 +1138,7 @@ namespace Throwdown
                 P1HitHeight = 80;
                 Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
 
+                //if there is a collision do damage and stun the opposing player
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
                 {
                     P2Health -= 3;
@@ -1020,6 +1155,7 @@ namespace Throwdown
                     P2Stun = 5;
                 }
             }
+            //if player is stunned they do not preform the attack
             if (P1Move == "NeutralAerial" && P1FrameData < 13)
             {
                 P1Drawing = "passive";
@@ -1028,12 +1164,14 @@ namespace Throwdown
             #endregion
 
             #region NeutralHeavy
+            //if a neutral heavy attack is preformed set state to NeutralHeavy
             if (spaceDown == true && rArrowDown == false && P1FrameData == 0 && P1Y >= 150)
             {
                 P1FrameData = 27;
                 P1Move = "NeutralHeavy";
             }
 
+            //Adjust hitbox to fit the attack
             if (P1Move == "NeutralHeavy" && P1FrameData <= 22 && P1FrameData >= 16)
             {
                 P1Drawing = "neutralHeavy";
@@ -1044,6 +1182,7 @@ namespace Throwdown
                 P1HitHeight = 80;
                 Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
 
+                //if there is a collision do damage and stun
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
                 {
                     P2Health -= 8;
@@ -1061,6 +1200,8 @@ namespace Throwdown
                     P2Stun = 9;
                 }
             }
+
+            //if player is stunned do not preform the attack
             if (P1Move == "NeutralHeavy" && P1FrameData < 16)
             {
                 P1Drawing = "passive";
@@ -1069,12 +1210,14 @@ namespace Throwdown
             #endregion
 
             #region ForwardHeavy
+            //if player preforms a forward heavy attack set their state to ForwardHeavy
             if (spaceDown == true && rArrowDown == true && P1FrameData == 0 && P1Y >= 150)
             {
                 P1FrameData = 33;
                 P1Move = "ForwardHeavy";
             }
 
+            //Adjust hitbox to fit the attack
             if (P1Move == "ForwardHeavy" && P1FrameData <= 27 && P1FrameData >= 19)
             {
                 P1Drawing = "forwardHeavy";
@@ -1085,6 +1228,7 @@ namespace Throwdown
                 P1HitHeight = 150;
                 Rectangle P1Hitbox = new Rectangle(P1HitX, P1HitY, P1HitWidth, P1HitHeight);
 
+                //if there is a collision do damage and stun the oposing player
                 if (P1Hitbox.IntersectsWith(P2Hurtbox) && P2Blocking == false && P2Stun == 0)
                 {
                     P2Health -= 9;
@@ -1102,6 +1246,8 @@ namespace Throwdown
                     P2Stun = 9;
                 }
             }
+
+            //if the player is stunned do not preform the attack
             if (P1Move == "ForwardHeavy" && P1FrameData < 19)
             {
                 P1Drawing = "passive";
@@ -1109,6 +1255,7 @@ namespace Throwdown
             }
             #endregion
 
+            //if player is stunned slightly decrease stun until no stun
             if (P1FrameData > 0)
             {
                 P1FrameData--;
@@ -1123,8 +1270,10 @@ namespace Throwdown
                 P1Move = "none";
             }
         }
+        //movement and attacks for hitbox player two
         public void P2HitboxControls()
         {
+            //Refer to P1Hitbox for detailed comments
             Rectangle P2Hurtbox = new Rectangle(P2X, P2Y, P2Width, P2Height);
             Rectangle P1Hurtbox = new Rectangle(P1X, P1Y, P1Width, P1Height);
 
@@ -1506,8 +1655,10 @@ namespace Throwdown
             }
         }
 
+        //movement and attacks for keycode player one
         public void P1KeycodeControls()
         {
+            //Refer to P1Hitbox for detailed comments
             if (P1Stun > 0)
             {
                 P1FrameData = P1Stun;
@@ -1880,8 +2031,10 @@ namespace Throwdown
                 P1Move = "none";
             }
         }
+        //movement and attacks for keycode player two
         public void P2KeycodeControls()
         {
+            //Refer to P1Hitbox for detailed comments
             Rectangle P2Hurtbox = new Rectangle(P2X, P2Y, P2Width, P2Height);
             Rectangle P1Hurtbox = new Rectangle(P1X, P1Y, P1Width, P1Height);
 
@@ -2247,8 +2400,10 @@ namespace Throwdown
             }
         }
 
+        //movement and attacks for void player one
         public void P1VoidControls()
         {
+            //Refer to P1Hitbox for detailed comments
             if (P1Stun > 0)
             {
                 P1FrameData = P1Stun;
@@ -2621,8 +2776,10 @@ namespace Throwdown
                 P1Move = "none";
             }
         }
+        //movement and attacks for void player two
         public void P2VoidControls()
         {
+            //Refer to P1Hitbox for detailed comments
             Rectangle P2Hurtbox = new Rectangle(P2X, P2Y, P2Width, P2Height);
             Rectangle P1Hurtbox = new Rectangle(P1X, P1Y, P1Width, P1Height);
 
