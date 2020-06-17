@@ -310,6 +310,12 @@
   <data name="P2Void_walk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\P2Void walk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PointEmpty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PointEmpty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PointFull" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PointFull.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="text_backdrop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text backdrop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

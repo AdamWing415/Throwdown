@@ -6,9 +6,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.Net;
 using Throwdown.Properties;
+using System.Diagnostics;
 
 namespace Throwdown
 {
@@ -18,6 +20,7 @@ namespace Throwdown
     {
         SolidBrush healthBrush = new SolidBrush(Color.White);
         Pen linePen = new Pen(Color.Black, 8);
+        Stopwatch stopWatch = new Stopwatch();
 
         #region keyDownVariables
         bool wDown = false;
@@ -77,8 +80,10 @@ namespace Throwdown
         int P2Health = 100;
         int P2Stun;
 
-        int round;
-        int R1Winner, R2Winner, R3Winner;
+        int round = 1;
+        int storedRound = 1;
+        int pointP1 = 0;
+        int pointP2 = 0;
 
         int P1Force = 0;
         int P2Force = 0;
@@ -90,6 +95,7 @@ namespace Throwdown
         string P2Drawing = "passive";
 
         bool paused = false;
+
         #endregion
 
 
@@ -100,6 +106,7 @@ namespace Throwdown
 
         private void gameScreen_Load(object sender, EventArgs e)
         {
+
             //This is technically an array usage, yep, this is it
             ((Form1)this.Parent).Controls.Find("inputCover", true)[0].Visible = true;
 
@@ -132,7 +139,7 @@ namespace Throwdown
 
             if (Form1.P2Character == "Hitbox")
             {
-                P2X = 690;
+                P2X = 490;
                 P2Y = 150;
                 P2Width = 160;
                 P2Height = 300;
@@ -142,7 +149,7 @@ namespace Throwdown
 
             if (Form1.P2Character == "Keycode")
             {
-                P2X = 690;
+                P2X = 490;
                 P2Y = 160;
                 P2Width = 160;
                 P2Height = 300;
@@ -151,7 +158,7 @@ namespace Throwdown
 
             if (Form1.P2Character == "Void")
             {
-                P2X = 690;
+                P2X = 490;
                 P2Y = 150;
                 P2Width = 160;
                 P2Height = 300;
@@ -310,6 +317,67 @@ namespace Throwdown
 
         private void gametimer_Tick(object sender, EventArgs e)
         {
+            stopWatch.Start();
+            countWin.Hide();
+
+            if (P1Health <=0 || P2Health <= 0)
+            {
+                round++;   
+                if (P2Health <= 0)
+                {
+                    pointP1++;
+                    P2Health = 100;
+                    P1Health = 100;
+                }
+                else
+                {
+                    pointP2++;
+                    P2Health = 100;
+                    P1Health = 100;
+                }
+                if (pointP1 == 1)
+                {
+                    p1Point.Image = Properties.Resources.PointFull;
+                }
+                if (pointP2 == 1)
+                {
+                    p2Point.Image = Properties.Resources.PointFull;
+                }
+                else if (pointP1 == 2 || pointP2 == 2)
+                {
+                    winPoint.Image = Properties.Resources.PointFull;
+                }
+                if (round >= 3)
+                {
+                    
+                    if (pointP1 > pointP2 && pointP1 >= 2)
+                    {
+                        countWin.Text = "P1 Wins!!";
+                    }
+                    else if (pointP2 > pointP1 && pointP2 >= 2)
+                    {
+                        countWin.Text = "P2 Wins!!";
+                    }
+                    RoundLabel.Text = $"Game";
+                    countWin.Show();
+                    Refresh();
+                    Thread.Sleep(5000);
+                    quitButton_Click(sender, e);
+                }
+                else
+                {
+                    RoundLabel.Text = $"Round {round}";
+                }
+                
+
+            }
+
+
+
+            if ((stopWatch.ElapsedMilliseconds < 1000 && round == 1 && P1Health == 100 && P2Health == 100) || round != storedRound)
+            {
+                countdown();
+            }
 
             if (Form1.P1Character == "Hitbox")
             {
@@ -383,13 +451,36 @@ namespace Throwdown
             #endregion
 
         }
+
+        private void countdown()
+        {
+            storedRound = round;
+            P1X = 50;
+            P2X = 490;
+            gametimer.Stop();
+            countWin.Show();
+            countWin.Text = "3";
+            Thread.Sleep(500);
+            countWin.Refresh();
+            countWin.Text = "2";
+            Thread.Sleep(500);
+            countWin.Refresh();
+            countWin.Text = "1";
+            Thread.Sleep(500);
+            countWin.Refresh();
+            countWin.Text = "GO!";
+            Thread.Sleep(100);
+            countWin.Refresh();
+            gametimer.Start();
+        }
         private void gameScreen_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(healthBrush, 25, 25, P1Health * 3, 30);
-            e.Graphics.FillRectangle(healthBrush, 875 - P2Health * 3, 25, P2Health * 3, 30);
+            e.Graphics.FillRectangle(healthBrush, 25, 25, P1Health * 2, 30);
+            e.Graphics.FillRectangle(healthBrush, 635 - P2Health * 2, 25, P2Health * 2, 30);
 
-            e.Graphics.DrawRectangle(linePen, 25, 25, 300, 30);
-            e.Graphics.DrawRectangle(linePen, 575, 25, 300, 30);
+            e.Graphics.DrawRectangle(linePen, 25, 25, 200, 30);
+            e.Graphics.DrawRectangle(linePen, 435, 25, 200, 30);
+
 
             if (Form1.P2Character == "Void")
             {
