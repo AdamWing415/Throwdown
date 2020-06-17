@@ -38,10 +38,6 @@
             this.P1Label = new System.Windows.Forms.Label();
             this.P2label = new System.Windows.Forms.Label();
             this.RoundLabel = new System.Windows.Forms.Label();
-            this.P1CharBox = new System.Windows.Forms.PictureBox();
-            this.P2CharBox = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.P1CharBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.P2CharBox)).BeginInit();
             this.SuspendLayout();
             // 
             // gametimer
@@ -158,31 +154,6 @@
             this.RoundLabel.Text = "Round";
             this.RoundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // P1CharBox
-            // 
-            this.P1CharBox.BackColor = System.Drawing.Color.Transparent;
-            this.P1CharBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.P1CharBox.Location = new System.Drawing.Point(50, 160);
-            this.P1CharBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.P1CharBox.Name = "P1CharBox";
-            this.P1CharBox.Size = new System.Drawing.Size(160, 300);
-            this.P1CharBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.P1CharBox.TabIndex = 0;
-            this.P1CharBox.TabStop = false;
-            // 
-            // P2CharBox
-            // 
-            this.P2CharBox.BackColor = System.Drawing.Color.Transparent;
-            this.P2CharBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.P2CharBox.Location = new System.Drawing.Point(700, 150);
-            this.P2CharBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.P2CharBox.Name = "P2CharBox";
-            this.P2CharBox.Padding = new System.Windows.Forms.Padding(0, 100, 0, 0);
-            this.P2CharBox.Size = new System.Drawing.Size(160, 300);
-            this.P2CharBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.P2CharBox.TabIndex = 2;
-            this.P2CharBox.TabStop = false;
-            // 
             // gameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -196,8 +167,6 @@
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.pauseScreen);
-            this.Controls.Add(this.P1CharBox);
-            this.Controls.Add(this.P2CharBox);
             this.Controls.Add(this.inputBox);
             this.Controls.Add(this.healthBackdrop);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -207,8 +176,6 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.gameScreen_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.P1CharBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.P2CharBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,9 +184,7 @@
         #endregion
 
         private System.Windows.Forms.Timer gametimer;
-        private System.Windows.Forms.PictureBox P1CharBox;
         private System.Windows.Forms.TextBox inputBox;
-        private System.Windows.Forms.PictureBox P2CharBox;
         private System.Windows.Forms.Label pauseScreen;
         private System.Windows.Forms.Button continueButton;
         private System.Windows.Forms.Button quitButton;
