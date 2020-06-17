@@ -30,7 +30,7 @@ namespace Throwdown
             Form1.Controls.Add(ts);
             ts.Location = new Point((Form1.Width - ts.Width) / 2, (Form1.Height - ts.Height) / 2);
 
-           
+          
         }
 
     }

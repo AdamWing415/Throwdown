@@ -114,9 +114,9 @@
             // healthBackdrop
             // 
             this.healthBackdrop.BackColor = System.Drawing.Color.Transparent;
-            this.healthBackdrop.Location = new System.Drawing.Point(-7, 0);
+            this.healthBackdrop.Location = new System.Drawing.Point(0, 0);
             this.healthBackdrop.Name = "healthBackdrop";
-            this.healthBackdrop.Size = new System.Drawing.Size(907, 60);
+            this.healthBackdrop.Size = new System.Drawing.Size(907, 500);
             this.healthBackdrop.TabIndex = 8;
             // 
             // P1Label
@@ -187,18 +187,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackgroundImage = global::Throwdown.Properties.Resources.gamescreen_Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Controls.Add(this.RoundLabel);
             this.Controls.Add(this.P2label);
             this.Controls.Add(this.P1Label);
-            this.Controls.Add(this.healthBackdrop);
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.pauseScreen);
             this.Controls.Add(this.P1CharBox);
             this.Controls.Add(this.P2CharBox);
             this.Controls.Add(this.inputBox);
+            this.Controls.Add(this.healthBackdrop);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "gameScreen";
             this.Size = new System.Drawing.Size(900, 500);

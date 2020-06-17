@@ -86,6 +86,9 @@ namespace Throwdown
         int P1JumpTimer = 0;
         int P2JumpTimer = 0;
 
+        string P1Drawing = "passive";
+        string P2Drawing = "passive";
+
         bool paused = false;
         #endregion
 
@@ -97,6 +100,7 @@ namespace Throwdown
 
         private void gameScreen_Load(object sender, EventArgs e)
         {
+           
 
             if (Form1.P1Character == "Hitbox")
             {
@@ -132,8 +136,8 @@ namespace Throwdown
                 P1Height = 300;
                 P1WalkCycle = 45;
 
-                P1CharBox.Image = Properties.Resources.Void_passive;
-                P1CharBox.Size = new Size(P1Width, P1Height);
+                //P1CharBox.Image = Properties.Resources.Void_passive;
+                //P1CharBox.Size = new Size(P1Width, P1Height);
                 P1CharBox.Location = new Point(P1X, P1Y);
             }
 
@@ -171,8 +175,8 @@ namespace Throwdown
                 P2Height = 300;
                 P2WalkCycle = 45;
 
-                P2CharBox.Image = Properties.Resources.P2Void_passive;
-                P2CharBox.Size = new Size(P2Width, P2Height);
+                //P2CharBox.Image = Properties.Resources.P2Void_passive;
+                //P2CharBox.Size = new Size(P2Width, P2Height);
                 P2CharBox.Location = new Point(P2X, P2Y);
             }
 
@@ -354,9 +358,7 @@ namespace Throwdown
             {
                 P2VoidControls();
             }
-            P1CharBox.Location = new Point(P1X, P1Y);
-            P2CharBox.Location = new Point(P2X, P2Y);
-
+           
             //player collision
             #region Collision
             if (P1X + P1Width - 20 >= P2X && P1X > 0 && P2X < 750)
@@ -400,6 +402,7 @@ namespace Throwdown
                 }
             }
             #endregion
+
         }
         private void gameScreen_Paint(object sender, PaintEventArgs e)
         {
@@ -408,6 +411,94 @@ namespace Throwdown
 
             e.Graphics.DrawRectangle(linePen, 25, 25, 300, 30);
             e.Graphics.DrawRectangle(linePen, 575, 25, 300, 30);
+
+            if (Form1.P2Character == "Void")
+            {
+                switch (P2Drawing)
+                {
+                   
+                    case "walk":
+                        e.Graphics.DrawImage(Properties.Resources.P2Void_walk, P2X, P2Y, P2Width, P2Height);
+                        break;
+                    case "block":
+                        e.Graphics.DrawImage(Properties.Resources.P2Void_block, P2X, P2Y, P2Width, P2Height);
+                        break;
+                    case "parry":
+                        e.Graphics.DrawImage(Properties.Resources.P2Void_parry, P2X, P2Y, P2Width, P2Height);
+                        break;
+                    case "jump":
+                        e.Graphics.DrawImage(Properties.Resources.P2void_jump, P2X, P2Y, P2Width + 50, P2Height);
+                        break;
+                    case "lightNeutral":
+                        e.Graphics.DrawImage(Properties.Resources.P2void_neutral_light, P2X, P2Y, P2Width + 50, P2Height);
+                        break;
+                    case "lightForward":
+                        e.Graphics.DrawImage(Properties.Resources.P2void_forward_light, P2X, P2Y, P2Width + 50, P2Height);
+                        break;
+                    case "neutralAerial":
+                        e.Graphics.DrawImage(Properties.Resources.P2void_neutral_air, P2X, P2Y, P2Width + 50, P2Height);
+                        break;
+                    case "forwardAerial":
+                        e.Graphics.DrawImage(Properties.Resources.P2void_forward_air, P2X, P2Y, P2Width + 50, P2Height);
+                        break;
+                    case "neutralHeavy":
+                        e.Graphics.DrawImage(Properties.Resources.P2Void_neutral_heavy, P2X, P2Y, P2Width, P2Height);
+                        break;
+                    case "forwardHeavy":
+                        e.Graphics.DrawImage(Properties.Resources.P2Void_forward_heavy, P2X, P2Y, P2Width + 50, P2Height);
+                        break;
+                    case "hitstun":
+                        e.Graphics.DrawImage(Properties.Resources.P2Void_hitstun, P2X, P2Y, P2Width, P2Height);
+                        break;
+                    case "passive":
+                        e.Graphics.DrawImage(Properties.Resources.P2Void_passive, P2X, P2Y, P2Width, P2Height);
+                        break;
+                }
+            }
+
+            if (Form1.P1Character == "Void")
+            {
+                switch (P1Drawing)
+                {
+
+                    case "walk":
+                        e.Graphics.DrawImage(Properties.Resources.Void_walk, P1X, P1Y, P1Width, P1Height);
+                        break;
+                    case "block":
+                        e.Graphics.DrawImage(Properties.Resources.Void_block, P1X, P1Y, P1Width, P1Height);
+                        break;
+                    case "parry":
+                        e.Graphics.DrawImage(Properties.Resources.Void_parry, P1X, P1Y, P1Width, P1Height);
+                        break;
+                    case "jump":
+                        e.Graphics.DrawImage(Properties.Resources.void_jump, P1X, P1Y, P1Width + 50, P1Height);
+                        break;
+                    case "lightNeutral":
+                        e.Graphics.DrawImage(Properties.Resources.void_neutral_light, P1X, P1Y, P1Width + 50, P1Height);
+                        break;
+                    case "lightForward":
+                        e.Graphics.DrawImage(Properties.Resources.void_forward_light, P1X, P1Y, P1Width + 50, P1Height);
+                        break;
+                    case "neutralAerial":
+                        e.Graphics.DrawImage(Properties.Resources.void_neutral_air, P1X, P1Y, P1Width + 50, P1Height);
+                        break;
+                    case "forwardAerial":
+                        e.Graphics.DrawImage(Properties.Resources.void_forward_air, P1X, P1Y, P1Width + 50, P1Height);
+                        break;
+                    case "neutralHeavy":
+                        e.Graphics.DrawImage(Properties.Resources.Void_neutral_heavy, P1X, P1Y, P1Width, P1Height);
+                        break;
+                    case "forwardHeavy":
+                        e.Graphics.DrawImage(Properties.Resources.Void_forward_heavy, P1X, P1Y, P1Width + 50, P1Height);
+                        break;
+                    case "hitstun":
+                        e.Graphics.DrawImage(Properties.Resources.Void_hitstun, P1X, P1Y, P1Width, P1Height);
+                        break;
+                    case "passive":
+                        e.Graphics.DrawImage(Properties.Resources.Void_passive, P1X, P1Y, P1Width, P1Height);
+                        break;
+                }
+            }
         }
 
         public void P1HitboxControls()
@@ -2040,7 +2131,6 @@ namespace Throwdown
             }
         }
 
-
         public void P1VoidControls()
         {
             if (P1Stun > 0)
@@ -2057,23 +2147,20 @@ namespace Throwdown
             if (downArrowDown == true && P1FrameData == 0)
             {
                 P1Blocking = true;
-                P1CharBox.Image = Properties.Resources.Void_block;
-                P1CharBox.Refresh();
+                P1Drawing = "block";
                 P1FrameData = 1;
             }
             else if (downArrowPress == true && P1FrameData < 2)
             {
                 P1Blocking = false;
                 P1Parry = true;
-                P1CharBox.Image = Properties.Resources.Void_parry;
-                P1CharBox.Refresh();
+                P1Drawing = "parry";
                 P1FrameData = 20;
             }
             else
             {
                 P1Parry = false;
-                P1CharBox.Image = Properties.Resources.Void_passive;
-                P1CharBox.Refresh();
+                P1Drawing = "passive";
             }
             #endregion
 
@@ -2084,8 +2171,7 @@ namespace Throwdown
                 P1X += 7;
                 if (P1WalkCycle > 22)
                 {
-                    P1CharBox.Image = Properties.Resources.Void_walk;
-                    P1CharBox.Refresh();
+                    P1Drawing = "walk";
                     P1WalkCycle--;
                 }
                 else if (P1WalkCycle == 0)
@@ -2094,8 +2180,7 @@ namespace Throwdown
                 }
                 else
                 {
-                    P1CharBox.Image = Properties.Resources.Void_passive;
-                    P1CharBox.Refresh();
+                    P1Drawing = "passive";
                     P1WalkCycle--;
                 }
             }
@@ -2105,8 +2190,7 @@ namespace Throwdown
                 P1X -= 6;
                 if (P1WalkCycle > 22)
                 {
-                    P1CharBox.Image = Properties.Resources.Void_walk;
-                    P1CharBox.Refresh();
+                    P1Drawing = "walk";
                     P1WalkCycle--;
                 }
                 else if (P1WalkCycle == 0)
@@ -2115,8 +2199,7 @@ namespace Throwdown
                 }
                 else
                 {
-                    P1CharBox.Image = Properties.Resources.Void_passive;
-                    P1CharBox.Refresh();
+                    P1Drawing = "passive";
                     P1WalkCycle--;
                 }
             }
@@ -2128,8 +2211,7 @@ namespace Throwdown
             if (P1JumpTimer == 0 && P1Y <= 140)
             {
                 jump = true;
-                P1CharBox.Image = Properties.Resources.void_jump;
-                P1CharBox.Refresh();
+                P1Drawing = "jump";
                 P1Y += 1 + P1Force;
                 P1Force++;
 
@@ -2151,8 +2233,7 @@ namespace Throwdown
                 P1Y -= P1Force + 1;
                 P1Force -= 2;
 
-                P1CharBox.Image = Properties.Resources.void_jump;
-                P1CharBox.Refresh();
+                P1Drawing = "jump";
                 P1JumpTimer--;
             }
 
@@ -2176,9 +2257,7 @@ namespace Throwdown
 
             if (P1Move == "lightNeutral" && P1FrameData <= 15 && P1FrameData >= 9)
             {
-                P1CharBox.Size = new Size(P1Width + 50, P1Height);
-                P1CharBox.Image = Properties.Resources.void_neutral_light;
-                P1CharBox.Refresh();
+                P1Drawing = "lightNeutral";
 
                 P1HitX = P1X + P1Width;
                 P1HitY = P1Y + 30;
@@ -2206,9 +2285,7 @@ namespace Throwdown
             }
             if (P1Move == "lightNeutral" && P1FrameData < 9)
             {
-                P1CharBox.Size = new Size(P1Width, P1Height);
-                P1CharBox.Image = Properties.Resources.Void_passive;
-                P1CharBox.Refresh();
+                P1Drawing = "passive";
                 Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -2222,9 +2299,7 @@ namespace Throwdown
 
             if (P1Move == "lightForward" && P1FrameData <= 19 && P1FrameData >= 13)
             {
-                P1CharBox.Size = new Size(P1Width + 50, P1Height);
-                P1CharBox.Image = Properties.Resources.void_forward_light;
-                P1CharBox.Refresh();
+                P1Drawing = "lightForward";
 
                 P1HitX = P1X + P1Width;
                 P1HitY = P1Y + 100;
@@ -2251,9 +2326,7 @@ namespace Throwdown
             }
             if (P1Move == "lightForward" && P1FrameData < 13)
             {
-                P1CharBox.Size = new Size(P1Width, P1Height);
-                P1CharBox.Image = Properties.Resources.Void_passive;
-                P1CharBox.Refresh();
+                P1Drawing = "passive";
                 Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -2267,9 +2340,7 @@ namespace Throwdown
 
             if (P1Move == "ForwardAerial" && P1FrameData <= 16 && P1FrameData >= 11)
             {
-                P1CharBox.Size = new Size(P1Width + 50, P1Height);
-                P1CharBox.Image = Properties.Resources.void_forward_air;
-                P1CharBox.Refresh();
+                P1Drawing = "forwardAerial";
 
                 P1HitX = P1X + P1Width;
                 P1HitY = P1Y + 50;
@@ -2295,9 +2366,7 @@ namespace Throwdown
             }
             if (P1Move == "ForwardAerial" && P1FrameData < 11)
             {
-                P1CharBox.Size = new Size(P1Width, P1Height);
-                P1CharBox.Image = Properties.Resources.Void_passive;
-                P1CharBox.Refresh();
+                P1Drawing = "passive";
                 Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -2311,9 +2380,7 @@ namespace Throwdown
 
             if (P1Move == "NeutralAerial" && P1FrameData <= 17 && P1FrameData >= 11)
             {
-                P1CharBox.Size = new Size(P1Width + 50, P1Height);
-                P1CharBox.Image = Properties.Resources.void_neutral_air;
-                P1CharBox.Refresh();
+                P1Drawing = "neutralAerial";
 
                 P1HitX = P1X + P1Width;
                 P1HitY = P1Y + 175;
@@ -2340,9 +2407,7 @@ namespace Throwdown
             }
             if (P1Move == "NeutralAerial" && P1FrameData < 11)
             {
-                P1CharBox.Size = new Size(P1Width, P1Height);
-                P1CharBox.Image = Properties.Resources.Void_passive;
-                P1CharBox.Refresh();
+                P1Drawing = "passive";
                 Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -2356,9 +2421,7 @@ namespace Throwdown
 
             if (P1Move == "NeutralHeavy" && P1FrameData <= 20 && P1FrameData >= 14)
             {
-                P1CharBox.Size = new Size(P1Width + 50, P1Height);
-                P1CharBox.Image = Properties.Resources.Void_neutral_heavy;
-                P1CharBox.Refresh();
+                P1Drawing = "neutralHeavy";
 
                 P1HitX = P1X + P1Width;
                 P1HitY = P1Y + 20;
@@ -2384,9 +2447,7 @@ namespace Throwdown
             }
             if (P1Move == "NeutralHeavy" && P1FrameData < 14)
             {
-                P1CharBox.Size = new Size(P1Width, P1Height);
-                P1CharBox.Image = Properties.Resources.Void_passive;
-                P1CharBox.Refresh();
+                P1Drawing = "passive";
                 Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -2400,9 +2461,7 @@ namespace Throwdown
             if (P1Move == "ForwardHeavy" && P1FrameData <= 22 && P1FrameData >= 15)
             {
                 P1X += 12;
-                P1CharBox.Size = new Size(P1Width + 50, P1Height);
-                P1CharBox.Image = Properties.Resources.Void_forward_heavy;
-                P1CharBox.Refresh();
+                P1Drawing = "forwardHeavy";
 
                 P1HitX = P1X + P1Width;
                 P1HitY = P1Y + 40;
@@ -2428,9 +2487,7 @@ namespace Throwdown
             }
             if (P1Move == "ForwardHeavy" && P1FrameData < 15)
             {
-                P1CharBox.Size = new Size(P1Width, P1Height);
-                P1CharBox.Image = Properties.Resources.Void_passive;
-                P1CharBox.Refresh();
+                P1Drawing = "passive";
                 Rectangle P1Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -2442,11 +2499,9 @@ namespace Throwdown
             if (P1Stun > 0)
             {
                 P1Stun--;
-                P1CharBox.Size = new Size(P1Width + 50, P1Height);
-                P1CharBox.Image = Properties.Resources.Void_hitstun;
-                P1CharBox.Refresh();
+                P1Drawing = "hitstun";
             }
-            if (P1FrameData == 0)
+                if (P1FrameData == 0)
             {
                 P1Move = "none";
             }
@@ -2461,23 +2516,20 @@ namespace Throwdown
             if (sDown == true && P2FrameData == 0)
             {
                 P2Blocking = true;
-                P2CharBox.Image = Properties.Resources.P2Void_block;
-                P2CharBox.Refresh();
+                P2Drawing = "block";
                 P2FrameData = 1;
             }
             else if (sPress == true && P2FrameData < 2)
             {
                 P2Blocking = false;
                 P2Parry = true;
-                P2CharBox.Image = Properties.Resources.P2Void_parry;
-                P2CharBox.Refresh();
+                P2Drawing = "parry";
                 P2FrameData = 20;
             }
             else
             {
                 P2Parry = false;
-                P2CharBox.Image = Properties.Resources.P2Void_passive;
-                P2CharBox.Refresh();
+                P2Drawing = "passive";
             }
             #endregion
 
@@ -2492,14 +2544,14 @@ namespace Throwdown
                 }
                 else if (P2WalkCycle > 22)
                 {
-                    P2CharBox.Image = Properties.Resources.P2Void_walk;
-                    P2CharBox.Refresh();
+                    P2Drawing = "walk";
+
                     P2WalkCycle--;
                 }
                 else
                 {
-                    P2CharBox.Image = Properties.Resources.P2Void_passive;
-                    P2CharBox.Refresh();
+                    P2Drawing = "passive";
+
                     P2WalkCycle--;
                 }
             }
@@ -2513,15 +2565,15 @@ namespace Throwdown
                 }
                 else if (P2WalkCycle > 22)
                 {
-                    P2CharBox.Image = Properties.Resources.P2Void_walk;
-                    P2CharBox.Refresh();
+                    P2Drawing = "walk";
+
                     P2WalkCycle--;
                 }
 
                 else
                 {
-                    P2CharBox.Image = Properties.Resources.P2Void_passive;
-                    P2CharBox.Refresh();
+                    P2Drawing = "passive";
+
                     P2WalkCycle--;
                 }
             }
@@ -2535,8 +2587,7 @@ namespace Throwdown
                 jump = true;
                 P2Y += 1 + P2Force;
                 P2Force++;
-                P2CharBox.Image = Properties.Resources.P2void_jump;
-                P2CharBox.Refresh();
+                P2Drawing = "jump";
             }
             if (P2Y <= 140)
             {
@@ -2554,9 +2605,7 @@ namespace Throwdown
             {
                 P2Y -= P2Force + 1;
                 P2Force-=2;
-
-                P2CharBox.Image = Properties.Resources.P2void_jump;
-                P2CharBox.Refresh();
+                P2Drawing = "jump";
                 P2JumpTimer--;
             }
 
@@ -2580,9 +2629,7 @@ namespace Throwdown
 
             if (P2Move == "lightNeutral" && P2FrameData <= 15 && P2FrameData >= 9)
             {
-                P2CharBox.Size = new Size(P2Width + 50, P2Height);
-                P2CharBox.Image = Properties.Resources.P2void_neutral_light;
-                P2CharBox.Refresh();
+                P2Drawing = "lightNeutral";
 
                 P2HitX = P2X - 80;
                 P2HitY = P2Y + 30;
@@ -2609,9 +2656,8 @@ namespace Throwdown
             }
             if (P2Move == "lightNeutral" && P2FrameData < 9)
             {
-                P2CharBox.Size = new Size(P2Width, P2Height);
-                P2CharBox.Image = Properties.Resources.P2Void_passive;
-                P2CharBox.Refresh();
+                P2Drawing = "passive";
+
                 Rectangle P2Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -2625,9 +2671,7 @@ namespace Throwdown
 
             if (P2Move == "lightForward" && P2FrameData <= 19 && P2FrameData >= 13)
             {
-                P2CharBox.Size = new Size(P2Width + 50, P2Height);
-                P2CharBox.Image = Properties.Resources.P2void_forward_light;
-                P2CharBox.Refresh();
+                P2Drawing = "lightForward";
 
                 P2HitX = P2X - 90;
                 P2HitY = P2Y + 100;
@@ -2653,9 +2697,7 @@ namespace Throwdown
             }
             if (P2Move == "lightForward" && P2FrameData < 13)
             {
-                P2CharBox.Size = new Size(P2Width, P2Height);
-                P2CharBox.Image = Properties.Resources.P2Void_passive;
-                P2CharBox.Refresh();
+                P2Drawing = "passive";
                 Rectangle P2Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -2669,9 +2711,7 @@ namespace Throwdown
 
             if (P2Move == "ForwardAerial" && P2FrameData <= 16 && P2FrameData >= 11)
             {
-                P2CharBox.Size = new Size(P2Width + 50, P2Height);
-                P2CharBox.Image = Properties.Resources.P2void_forward_air;
-                P2CharBox.Refresh();
+                P2Drawing = "forwardAerial";
 
                 P2HitX = P2X - 50;
                 P2HitY = P2Y + 50;
@@ -2697,9 +2737,7 @@ namespace Throwdown
             }
             if (P2Move == "ForwardAerial" && P2FrameData < 11)
             {
-                P2CharBox.Size = new Size(P2Width, P2Height);
-                P2CharBox.Image = Properties.Resources.P2Void_passive;
-                P2CharBox.Refresh();
+                P2Drawing = "passive";
                 Rectangle P2Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -2713,9 +2751,7 @@ namespace Throwdown
 
             if (P2Move == "NeutralAerial" && P2FrameData <= 17 && P2FrameData >= 11)
             {
-                P2CharBox.Size = new Size(P2Width + 50, P2Height);
-                P2CharBox.Image = Properties.Resources.P2void_neutral_air;
-                P2CharBox.Refresh();
+                P1Drawing = "neutralAerial";
 
                 P2HitX = P2X - 75;
                 P2HitY = P2Y + 175;
@@ -2741,9 +2777,7 @@ namespace Throwdown
             }
             if (P2Move == "NeutralAerial" && P2FrameData < 11)
             {
-                P2CharBox.Size = new Size(P2Width, P2Height);
-                P2CharBox.Image = Properties.Resources.P2Void_passive;
-                P2CharBox.Refresh();
+                P1Drawing = "passive";
                 Rectangle P2Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -2757,9 +2791,7 @@ namespace Throwdown
 
             if (P2Move == "NeutralHeavy" && P2FrameData <= 20 && P2FrameData >= 14)
             {
-                P2CharBox.Size = new Size(P2Width + 50, P2Height);
-                P2CharBox.Image = Properties.Resources.P2Void_neutral_heavy;
-                P2CharBox.Refresh();
+                P2Drawing = "neutralHeavy";
 
                 P2HitX = P2X - 110;
                 P2HitY = P2Y + 20;
@@ -2785,9 +2817,7 @@ namespace Throwdown
             }
             if (P2Move == "NeutralHeavy" && P2FrameData < 14)
             {
-                P2CharBox.Size = new Size(P2Width, P2Height);
-                P2CharBox.Image = Properties.Resources.P2Void_passive;
-                P2CharBox.Refresh();
+                P2Drawing = "passive";
                 Rectangle P2Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -2802,9 +2832,7 @@ namespace Throwdown
             if (P2Move == "ForwardHeavy" && P2FrameData <= 22 && P2FrameData >= 15)
             {
                 P2X -= 12;
-                P2CharBox.Size = new Size(P2Width + 50, P2Height);
-                P2CharBox.Image = Properties.Resources.P2Void_forward_heavy;
-                P2CharBox.Refresh();
+                P2Drawing = "forwardHeavy";
 
                 P2HitX = P2X - 60;
                 P2HitY = P2Y + 40;
@@ -2830,9 +2858,7 @@ namespace Throwdown
             }
             if (P2Move == "ForwardHeavy" && P2FrameData < 15)
             {
-                P2CharBox.Size = new Size(P2Width, P2Height);
-                P2CharBox.Image = Properties.Resources.P2Void_passive;
-                P2CharBox.Refresh();
+                P2Drawing = "passive";
                 Rectangle P2Hitbox = new Rectangle(0, 500, 1, 1);
             }
             #endregion
@@ -2844,9 +2870,7 @@ namespace Throwdown
             if (P2Stun > 0)
             {
                 P2Stun--;
-                P2CharBox.Size = new Size(P2Width + 50, P2Height);
-                P2CharBox.Image = Properties.Resources.P2Void_hitstun;
-                P2CharBox.Refresh();
+                P2Drawing = "hitstun";
             }
             if (P2FrameData == 0)
             {
