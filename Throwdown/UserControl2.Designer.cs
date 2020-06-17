@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(characterSelectScreen));
-            this.tempButton = new System.Windows.Forms.Button();
+            this.FightButton = new System.Windows.Forms.Button();
             this.HitboxSelect = new System.Windows.Forms.Button();
             this.KeycodeSelect = new System.Windows.Forms.Button();
             this.VoidSelectButton = new System.Windows.Forms.Button();
@@ -43,26 +43,32 @@
             this.hitboxlabel = new System.Windows.Forms.Label();
             this.Keycodelabel = new System.Windows.Forms.Label();
             this.voidlabel = new System.Windows.Forms.Label();
+            this.P1SelectionLabel = new System.Windows.Forms.Label();
+            this.P2SelectionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.P1PreviewBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.P2PreviewBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // tempButton
+            // FightButton
             // 
-            this.tempButton.BackColor = System.Drawing.Color.DarkBlue;
-            this.tempButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.tempButton.FlatAppearance.BorderSize = 2;
-            this.tempButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.tempButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tempButton.Font = new System.Drawing.Font("PMingLiU-ExtB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tempButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tempButton.Location = new System.Drawing.Point(689, 444);
-            this.tempButton.Name = "tempButton";
-            this.tempButton.Size = new System.Drawing.Size(172, 53);
-            this.tempButton.TabIndex = 0;
-            this.tempButton.Text = "temporary";
-            this.tempButton.UseVisualStyleBackColor = false;
-            this.tempButton.Click += new System.EventHandler(this.tempButton_Click);
+            this.FightButton.BackColor = System.Drawing.Color.DarkBlue;
+            this.FightButton.BackgroundImage = global::Throwdown.Properties.Resources.title_background;
+            this.FightButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.FightButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.FightButton.FlatAppearance.BorderSize = 2;
+            this.FightButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.FightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FightButton.Font = new System.Drawing.Font("PMingLiU-ExtB", 79.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FightButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.FightButton.Location = new System.Drawing.Point(3, 238);
+            this.FightButton.Name = "FightButton";
+            this.FightButton.Size = new System.Drawing.Size(894, 138);
+            this.FightButton.TabIndex = 0;
+            this.FightButton.Text = "FIGHT!";
+            this.FightButton.UseVisualStyleBackColor = false;
+            this.FightButton.Visible = false;
+            this.FightButton.Click += new System.EventHandler(this.FightButton_Click);
+            this.FightButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FightButton_KeyDown);
             // 
             // HitboxSelect
             // 
@@ -75,7 +81,7 @@
             this.HitboxSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HitboxSelect.Font = new System.Drawing.Font("PMingLiU-ExtB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HitboxSelect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.HitboxSelect.Location = new System.Drawing.Point(325, 187);
+            this.HitboxSelect.Location = new System.Drawing.Point(325, 190);
             this.HitboxSelect.Name = "HitboxSelect";
             this.HitboxSelect.Size = new System.Drawing.Size(103, 100);
             this.HitboxSelect.TabIndex = 1;
@@ -93,7 +99,7 @@
             this.KeycodeSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.KeycodeSelect.Font = new System.Drawing.Font("PMingLiU-ExtB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeycodeSelect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.KeycodeSelect.Location = new System.Drawing.Point(472, 187);
+            this.KeycodeSelect.Location = new System.Drawing.Point(475, 190);
             this.KeycodeSelect.Name = "KeycodeSelect";
             this.KeycodeSelect.Size = new System.Drawing.Size(103, 100);
             this.KeycodeSelect.TabIndex = 2;
@@ -111,7 +117,7 @@
             this.VoidSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VoidSelectButton.Font = new System.Drawing.Font("PMingLiU-ExtB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VoidSelectButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.VoidSelectButton.Location = new System.Drawing.Point(396, 338);
+            this.VoidSelectButton.Location = new System.Drawing.Point(400, 340);
             this.VoidSelectButton.Name = "VoidSelectButton";
             this.VoidSelectButton.Size = new System.Drawing.Size(103, 100);
             this.VoidSelectButton.TabIndex = 4;
@@ -124,6 +130,7 @@
             this.P1PreviewBox.Location = new System.Drawing.Point(0, 133);
             this.P1PreviewBox.Name = "P1PreviewBox";
             this.P1PreviewBox.Size = new System.Drawing.Size(285, 367);
+            this.P1PreviewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.P1PreviewBox.TabIndex = 5;
             this.P1PreviewBox.TabStop = false;
             // 
@@ -133,6 +140,7 @@
             this.P2PreviewBox.Location = new System.Drawing.Point(615, 133);
             this.P2PreviewBox.Name = "P2PreviewBox";
             this.P2PreviewBox.Size = new System.Drawing.Size(285, 367);
+            this.P2PreviewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.P2PreviewBox.TabIndex = 6;
             this.P2PreviewBox.TabStop = false;
             // 
@@ -157,9 +165,9 @@
             this.P2Label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.P2Label.Image = global::Throwdown.Properties.Resources.text_backdrop;
             this.P2Label.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.P2Label.Location = new System.Drawing.Point(679, -8);
+            this.P2Label.Location = new System.Drawing.Point(671, -8);
             this.P2Label.Name = "P2Label";
-            this.P2Label.Size = new System.Drawing.Size(221, 77);
+            this.P2Label.Size = new System.Drawing.Size(229, 77);
             this.P2Label.TabIndex = 8;
             this.P2Label.Text = "Player 2";
             this.P2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,6 +253,34 @@
             this.voidlabel.Text = "Void";
             this.voidlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // P1SelectionLabel
+            // 
+            this.P1SelectionLabel.BackColor = System.Drawing.Color.Transparent;
+            this.P1SelectionLabel.Font = new System.Drawing.Font("PMingLiU-ExtB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.P1SelectionLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.P1SelectionLabel.Image = ((System.Drawing.Image)(resources.GetObject("P1SelectionLabel.Image")));
+            this.P1SelectionLabel.Location = new System.Drawing.Point(275, 190);
+            this.P1SelectionLabel.Name = "P1SelectionLabel";
+            this.P1SelectionLabel.Size = new System.Drawing.Size(45, 45);
+            this.P1SelectionLabel.TabIndex = 15;
+            this.P1SelectionLabel.Text = "P1";
+            this.P1SelectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P1SelectionLabel.Visible = false;
+            // 
+            // P2SelectionLabel
+            // 
+            this.P2SelectionLabel.BackColor = System.Drawing.Color.Transparent;
+            this.P2SelectionLabel.Font = new System.Drawing.Font("PMingLiU-ExtB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.P2SelectionLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.P2SelectionLabel.Image = ((System.Drawing.Image)(resources.GetObject("P2SelectionLabel.Image")));
+            this.P2SelectionLabel.Location = new System.Drawing.Point(274, 235);
+            this.P2SelectionLabel.Name = "P2SelectionLabel";
+            this.P2SelectionLabel.Size = new System.Drawing.Size(45, 45);
+            this.P2SelectionLabel.TabIndex = 16;
+            this.P2SelectionLabel.Text = "P2";
+            this.P2SelectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P2SelectionLabel.Visible = false;
+            // 
             // characterSelectScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -252,9 +288,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.BackgroundImage = global::Throwdown.Properties.Resources.char_select_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.FightButton);
+            this.Controls.Add(this.P2SelectionLabel);
+            this.Controls.Add(this.P1SelectionLabel);
             this.Controls.Add(this.voidlabel);
             this.Controls.Add(this.Keycodelabel);
-            this.Controls.Add(this.tempButton);
             this.Controls.Add(this.hitboxlabel);
             this.Controls.Add(this.ChooseLabel);
             this.Controls.Add(this.P2CharNameLabel);
@@ -277,7 +315,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button tempButton;
+        private System.Windows.Forms.Button FightButton;
         private System.Windows.Forms.Button HitboxSelect;
         private System.Windows.Forms.Button KeycodeSelect;
         private System.Windows.Forms.Button VoidSelectButton;
@@ -291,5 +329,7 @@
         private System.Windows.Forms.Label hitboxlabel;
         private System.Windows.Forms.Label Keycodelabel;
         private System.Windows.Forms.Label voidlabel;
+        private System.Windows.Forms.Label P1SelectionLabel;
+        private System.Windows.Forms.Label P2SelectionLabel;
     }
 }
