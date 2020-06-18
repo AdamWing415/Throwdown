@@ -55,10 +55,10 @@
             // 
             // inputBox
             // 
-            this.inputBox.Location = new System.Drawing.Point(665, 386);
-            this.inputBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.inputBox.Location = new System.Drawing.Point(887, 475);
+            this.inputBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(8, 20);
+            this.inputBox.Size = new System.Drawing.Size(9, 22);
             this.inputBox.TabIndex = 1;
             this.inputBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyDown);
             this.inputBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyUp);
@@ -69,9 +69,10 @@
             this.pauseScreen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pauseScreen.Font = new System.Drawing.Font("MV Boli", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pauseScreen.ForeColor = System.Drawing.Color.Goldenrod;
-            this.pauseScreen.Location = new System.Drawing.Point(321, 84);
+            this.pauseScreen.Location = new System.Drawing.Point(428, 103);
+            this.pauseScreen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pauseScreen.Name = "pauseScreen";
-            this.pauseScreen.Size = new System.Drawing.Size(281, 192);
+            this.pauseScreen.Size = new System.Drawing.Size(375, 236);
             this.pauseScreen.TabIndex = 4;
             this.pauseScreen.Text = "PAUSED...";
             this.pauseScreen.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -84,9 +85,10 @@
             this.continueButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.continueButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.continueButton.ForeColor = System.Drawing.Color.White;
-            this.continueButton.Location = new System.Drawing.Point(391, 135);
+            this.continueButton.Location = new System.Drawing.Point(521, 166);
+            this.continueButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.continueButton.Name = "continueButton";
-            this.continueButton.Size = new System.Drawing.Size(142, 46);
+            this.continueButton.Size = new System.Drawing.Size(189, 57);
             this.continueButton.TabIndex = 5;
             this.continueButton.TabStop = false;
             this.continueButton.Text = "CONTINUE?";
@@ -101,9 +103,10 @@
             this.quitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.quitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quitButton.ForeColor = System.Drawing.Color.White;
-            this.quitButton.Location = new System.Drawing.Point(391, 200);
+            this.quitButton.Location = new System.Drawing.Point(521, 246);
+            this.quitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.quitButton.Name = "quitButton";
-            this.quitButton.Size = new System.Drawing.Size(142, 46);
+            this.quitButton.Size = new System.Drawing.Size(189, 57);
             this.quitButton.TabIndex = 6;
             this.quitButton.TabStop = false;
             this.quitButton.Text = "QUIT?";
@@ -115,9 +118,8 @@
             // 
             this.healthBackdrop.BackColor = System.Drawing.Color.Transparent;
             this.healthBackdrop.Location = new System.Drawing.Point(0, 0);
-            this.healthBackdrop.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.healthBackdrop.Name = "healthBackdrop";
-            this.healthBackdrop.Size = new System.Drawing.Size(900, 500);
+            this.healthBackdrop.Size = new System.Drawing.Size(1200, 615);
             this.healthBackdrop.TabIndex = 8;
             // 
             // P1Label
@@ -126,10 +128,9 @@
             this.P1Label.Font = new System.Drawing.Font("PMingLiU-ExtB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.P1Label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.P1Label.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.P1Label.Location = new System.Drawing.Point(4, 49);
-            this.P1Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.P1Label.Location = new System.Drawing.Point(3, 81);
             this.P1Label.Name = "P1Label";
-            this.P1Label.Size = new System.Drawing.Size(125, 45);
+            this.P1Label.Size = new System.Drawing.Size(167, 55);
             this.P1Label.TabIndex = 9;
             this.P1Label.Text = "Player 1";
             this.P1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -140,10 +141,9 @@
             this.P2label.Font = new System.Drawing.Font("PMingLiU-ExtB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.P2label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.P2label.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.P2label.Location = new System.Drawing.Point(764, 48);
-            this.P2label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.P2label.Location = new System.Drawing.Point(1023, 81);
             this.P2label.Name = "P2label";
-            this.P2label.Size = new System.Drawing.Size(124, 45);
+            this.P2label.Size = new System.Drawing.Size(165, 55);
             this.P2label.TabIndex = 10;
             this.P2label.Text = "Player 2";
             this.P2label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -154,10 +154,9 @@
             this.RoundLabel.Font = new System.Drawing.Font("PMingLiU-ExtB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RoundLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.RoundLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RoundLabel.Location = new System.Drawing.Point(385, 11);
-            this.RoundLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.RoundLabel.Location = new System.Drawing.Point(523, 4);
             this.RoundLabel.Name = "RoundLabel";
-            this.RoundLabel.Size = new System.Drawing.Size(150, 45);
+            this.RoundLabel.Size = new System.Drawing.Size(200, 55);
             this.RoundLabel.TabIndex = 11;
             this.RoundLabel.Text = "Round 1";
             this.RoundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -166,9 +165,10 @@
             // 
             this.p1Point.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.p1Point.Image = global::Throwdown.Properties.Resources.PointEmpty;
-            this.p1Point.Location = new System.Drawing.Point(412, 51);
+            this.p1Point.Location = new System.Drawing.Point(549, 63);
+            this.p1Point.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.p1Point.Name = "p1Point";
-            this.p1Point.Size = new System.Drawing.Size(30, 30);
+            this.p1Point.Size = new System.Drawing.Size(40, 37);
             this.p1Point.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p1Point.TabIndex = 12;
             this.p1Point.TabStop = false;
@@ -177,9 +177,10 @@
             // 
             this.p2Point.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.p2Point.Image = global::Throwdown.Properties.Resources.PointEmpty;
-            this.p2Point.Location = new System.Drawing.Point(476, 51);
+            this.p2Point.Location = new System.Drawing.Point(635, 63);
+            this.p2Point.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.p2Point.Name = "p2Point";
-            this.p2Point.Size = new System.Drawing.Size(30, 30);
+            this.p2Point.Size = new System.Drawing.Size(40, 37);
             this.p2Point.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p2Point.TabIndex = 13;
             this.p2Point.TabStop = false;
@@ -188,9 +189,10 @@
             // 
             this.winPoint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.winPoint.Image = global::Throwdown.Properties.Resources.PointEmpty;
-            this.winPoint.Location = new System.Drawing.Point(444, 51);
+            this.winPoint.Location = new System.Drawing.Point(592, 63);
+            this.winPoint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.winPoint.Name = "winPoint";
-            this.winPoint.Size = new System.Drawing.Size(30, 30);
+            this.winPoint.Size = new System.Drawing.Size(40, 37);
             this.winPoint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.winPoint.TabIndex = 14;
             this.winPoint.TabStop = false;
@@ -201,17 +203,16 @@
             this.countWin.Font = new System.Drawing.Font("PMingLiU-ExtB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.countWin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.countWin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.countWin.Location = new System.Drawing.Point(383, 87);
-            this.countWin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.countWin.Location = new System.Drawing.Point(511, 107);
             this.countWin.Name = "countWin";
-            this.countWin.Size = new System.Drawing.Size(150, 45);
+            this.countWin.Size = new System.Drawing.Size(200, 55);
             this.countWin.TabIndex = 15;
             this.countWin.Text = "3";
             this.countWin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gameScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::Throwdown.Properties.Resources.gamescreen_Background;
@@ -228,9 +229,9 @@
             this.Controls.Add(this.P1Label);
             this.Controls.Add(this.inputBox);
             this.Controls.Add(this.healthBackdrop);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "gameScreen";
-            this.Size = new System.Drawing.Size(900, 500);
+            this.Size = new System.Drawing.Size(1200, 615);
             this.Load += new System.EventHandler(this.gameScreen_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.gameScreen_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gameScreen_KeyDown);
