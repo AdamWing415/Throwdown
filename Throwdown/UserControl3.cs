@@ -163,7 +163,7 @@ namespace Throwdown
             if (Form1.P2Character == "Hitbox")
             {
                 //set location and size for the character
-                P2X = 490;
+                P2X = 690;
                 P2Y = 150;
                 P2Width = 160;
                 P2Height = 300;
@@ -175,7 +175,7 @@ namespace Throwdown
             if (Form1.P2Character == "Keycode")
             {
                 //set location and size for the character
-                P2X = 490;
+                P2X = 690;
                 P2Y = 160;
                 P2Width = 160;
                 P2Height = 300;
@@ -186,7 +186,7 @@ namespace Throwdown
             if (Form1.P2Character == "Void")
             {
                 //set location and size for the character
-                P2X = 490;
+                P2X = 690;
                 P2Y = 150;
                 P2Width = 160;
                 P2Height = 300;
@@ -211,6 +211,9 @@ namespace Throwdown
         {
             //unpause and go to main screen
             paused = false;
+
+            //This is technically an array usage, yep, this is it... again
+            ((Form1)this.Parent).Controls.Find("inputCover", true)[0].Visible = false;
             gametimer.Start();
             Form Form1 = this.FindForm();
             Form1.Controls.Remove(this);
@@ -440,6 +443,8 @@ namespace Throwdown
 
                     //run the quit function
                     quitButton_Click(sender, e);
+
+                   
                 }
 
                 //else if it is not >= round 3 display the round number
@@ -584,12 +589,12 @@ namespace Throwdown
         private void gameScreen_Paint(object sender, PaintEventArgs e)
         {
             //create healthbar
-            e.Graphics.FillRectangle(healthBrush, 25, 25, P1Health * 2, 30);
-            e.Graphics.FillRectangle(healthBrush, 635 - P2Health * 2, 25, P2Health * 2, 30);
+            e.Graphics.FillRectangle(healthBrush, 25, 25, P1Health * 3, 30);
+            e.Graphics.FillRectangle(healthBrush, 885 - P2Health * 3, 25, P2Health * 3, 30);
 
             //create health bar outline
-            e.Graphics.DrawRectangle(linePen, 25, 25, 200, 30);
-            e.Graphics.DrawRectangle(linePen, 435, 25, 200, 30);
+            e.Graphics.DrawRectangle(linePen, 25, 25, 300, 30);
+            e.Graphics.DrawRectangle(linePen, 585, 25, 300, 30);
 
             //if p2 character is void draw image for character depending on state
             if (Form1.P2Character == "Void")
