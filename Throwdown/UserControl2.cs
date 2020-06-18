@@ -33,6 +33,9 @@ namespace Throwdown
             Form1.Controls.Remove(this);
             gameScreen gs = new gameScreen();
             Form1.Controls.Add(gs);
+
+            gs.Size = new Size(900, 500);
+            
             gs.Location = new Point((Form1.Width - gs.Width) / 2, (Form1.Height - gs.Height) / 2);
         }
 
