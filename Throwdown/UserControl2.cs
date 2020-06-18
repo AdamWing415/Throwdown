@@ -152,6 +152,31 @@ namespace Throwdown
             }
         }
 
-       
+        private void booleanSelectButton_Click(object sender, EventArgs e)
+        {
+            //set the player who clicked to void character
+            if (Form1.P1Character == "unselected")
+            {
+                Form1.P1Character = "Boolean";
+                P1SelectionLabel.Visible = true;
+                P1SelectionLabel.Location = new Point(350, 340);
+                P1PreviewBox.Image = Properties.Resources.Boolean_Passive;
+                P1CharNameLabel.Text = "Boolean";
+                Refresh();
+            }
+            else if (Form1.P2Character == "unselected")
+            {
+                Form1.P2Character = "Boolean";
+                P2SelectionLabel.Visible = true;
+                P2SelectionLabel.Location = new Point(350, 390);
+                P2PreviewBox.Image = Properties.Resources.Boolean_Passive__2_;
+                P2CharNameLabel.Text = "Boolean";
+                Refresh();
+
+                //once player two has selected a character show the fight button
+                FightButton.Show();
+                FightButton.Focus();
+                FightButton.BringToFront();
+            }
     }
-}
+}}

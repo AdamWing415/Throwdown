@@ -356,5 +356,80 @@
   <ItemGroup>
     <None Include="Resources\controls.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Forward-Air.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Forward-Heavy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Forward-Light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Guard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Jump.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Neutral-Air.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Neutral-Heavy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Neutral-Light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Parry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Passive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-StunHit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Walk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Forward-Air %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Forward-Light %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Guard %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Jump %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Neutral-Air %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Neutral-Heavy %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Neutral-Light %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Parry %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Passive %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-StunHit %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Walk %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boolean-Forward-Heavy %282%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
