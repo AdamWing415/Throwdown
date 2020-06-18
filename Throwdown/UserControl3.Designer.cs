@@ -55,7 +55,7 @@
             // 
             // inputBox
             // 
-            this.inputBox.Location = new System.Drawing.Point(887, 475);
+            this.inputBox.Location = new System.Drawing.Point(1179, 593);
             this.inputBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inputBox.Name = "inputBox";
             this.inputBox.Size = new System.Drawing.Size(9, 22);

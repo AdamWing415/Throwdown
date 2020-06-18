@@ -62,8 +62,8 @@
             this.FightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FightButton.Font = new System.Drawing.Font("PMingLiU-ExtB", 79.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FightButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.FightButton.Location = new System.Drawing.Point(2, 193);
-            this.FightButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FightButton.Location = new System.Drawing.Point(2, 215);
+            this.FightButton.Margin = new System.Windows.Forms.Padding(2);
             this.FightButton.Name = "FightButton";
             this.FightButton.Size = new System.Drawing.Size(670, 112);
             this.FightButton.TabIndex = 0;
@@ -85,7 +85,7 @@
             this.HitboxSelect.Font = new System.Drawing.Font("PMingLiU-ExtB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HitboxSelect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.HitboxSelect.Location = new System.Drawing.Point(244, 154);
-            this.HitboxSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HitboxSelect.Margin = new System.Windows.Forms.Padding(2);
             this.HitboxSelect.Name = "HitboxSelect";
             this.HitboxSelect.Size = new System.Drawing.Size(77, 81);
             this.HitboxSelect.TabIndex = 1;
@@ -104,7 +104,7 @@
             this.KeycodeSelect.Font = new System.Drawing.Font("PMingLiU-ExtB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeycodeSelect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.KeycodeSelect.Location = new System.Drawing.Point(356, 154);
-            this.KeycodeSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.KeycodeSelect.Margin = new System.Windows.Forms.Padding(2);
             this.KeycodeSelect.Name = "KeycodeSelect";
             this.KeycodeSelect.Size = new System.Drawing.Size(77, 81);
             this.KeycodeSelect.TabIndex = 2;
@@ -123,7 +123,7 @@
             this.VoidSelectButton.Font = new System.Drawing.Font("PMingLiU-ExtB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VoidSelectButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.VoidSelectButton.Location = new System.Drawing.Point(244, 274);
-            this.VoidSelectButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VoidSelectButton.Margin = new System.Windows.Forms.Padding(2);
             this.VoidSelectButton.Name = "VoidSelectButton";
             this.VoidSelectButton.Size = new System.Drawing.Size(77, 81);
             this.VoidSelectButton.TabIndex = 4;
@@ -134,7 +134,7 @@
             // 
             this.P1PreviewBox.BackColor = System.Drawing.Color.Transparent;
             this.P1PreviewBox.Location = new System.Drawing.Point(0, 108);
-            this.P1PreviewBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.P1PreviewBox.Margin = new System.Windows.Forms.Padding(2);
             this.P1PreviewBox.Name = "P1PreviewBox";
             this.P1PreviewBox.Size = new System.Drawing.Size(214, 298);
             this.P1PreviewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -145,7 +145,7 @@
             // 
             this.P2PreviewBox.BackColor = System.Drawing.Color.Transparent;
             this.P2PreviewBox.Location = new System.Drawing.Point(461, 108);
-            this.P2PreviewBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.P2PreviewBox.Margin = new System.Windows.Forms.Padding(2);
             this.P2PreviewBox.Name = "P2PreviewBox";
             this.P2PreviewBox.Size = new System.Drawing.Size(214, 298);
             this.P2PreviewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -358,7 +358,7 @@
             this.Controls.Add(this.KeycodeSelect);
             this.Controls.Add(this.HitboxSelect);
             this.Controls.Add(this.booleanSelectButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "characterSelectScreen";
             this.Size = new System.Drawing.Size(675, 406);
             this.Load += new System.EventHandler(this.characterSelectScreen_Load);

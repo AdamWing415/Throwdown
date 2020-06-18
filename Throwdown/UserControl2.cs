@@ -74,7 +74,7 @@ namespace Throwdown
             {
                 Form1.P1Character = "Hitbox";
                 P1SelectionLabel.Visible = true;
-                P1SelectionLabel.Location = new Point(275, 190);
+                P1SelectionLabel.Location = new Point(206, 154);
                 P1PreviewBox.Image = Properties.Resources.hitbox_passive;
                 P1CharNameLabel.Text = "Hitbox";
                 Refresh();
@@ -83,7 +83,7 @@ namespace Throwdown
             {
                 Form1.P2Character = "Hitbox";
                 P2SelectionLabel.Visible = true;
-                P2SelectionLabel.Location = new Point(275, 240);
+                P2SelectionLabel.Location = new Point(206, 191);
                 P2PreviewBox.Image = Properties.Resources.P2hitbox_passive;
                 P2CharNameLabel.Text = "Hitbox";
                 Refresh();
@@ -104,7 +104,7 @@ namespace Throwdown
             {
                 Form1.P1Character = "Keycode";
                 P1SelectionLabel.Visible = true;
-                P1SelectionLabel.Location = new Point(585, 190);
+                P1SelectionLabel.Location = new Point(437, 154);
                 P1PreviewBox.Image = Properties.Resources.Keycode_passive;
                 P1CharNameLabel.Text = "Keycode";
                 Refresh();
@@ -114,7 +114,7 @@ namespace Throwdown
             {
                 Form1.P2Character = "Keycode";
                 P2SelectionLabel.Visible = true;
-                P2SelectionLabel.Location = new Point(585, 240);
+                P2SelectionLabel.Location = new Point(437, 191);
                 P2PreviewBox.Image = Properties.Resources.P2Keycode_passive;
                 P2CharNameLabel.Text = "Keycode";
                 Refresh();
@@ -134,7 +134,7 @@ namespace Throwdown
             {
                 Form1.P1Character = "Void";
                 P1SelectionLabel.Visible = true;
-                P1SelectionLabel.Location = new Point(350, 340);
+                P1SelectionLabel.Location = new Point(206, 274);
                 P1PreviewBox.Image = Properties.Resources.Void_passive;
                 P1CharNameLabel.Text = "Void";
                 Refresh();
@@ -143,7 +143,7 @@ namespace Throwdown
             {
                 Form1.P2Character = "Void";
                 P2SelectionLabel.Visible = true;
-                P2SelectionLabel.Location = new Point(350, 390);
+                P2SelectionLabel.Location = new Point(206, 310);
                 P2PreviewBox.Image = Properties.Resources.P2Void_passive;
                 P2CharNameLabel.Text = "Void";
                 Refresh();
@@ -162,7 +162,7 @@ namespace Throwdown
             {
                 Form1.P1Character = "Boolean";
                 P1SelectionLabel.Visible = true;
-                P1SelectionLabel.Location = new Point(350, 340);
+                P1SelectionLabel.Location = new Point(437, 274);
                 P1PreviewBox.Image = Properties.Resources.Boolean_Passive;
                 P1CharNameLabel.Text = "Boolean";
                 Refresh();
@@ -171,7 +171,7 @@ namespace Throwdown
             {
                 Form1.P2Character = "Boolean";
                 P2SelectionLabel.Visible = true;
-                P2SelectionLabel.Location = new Point(350, 390);
+                P2SelectionLabel.Location = new Point(437, 310);
                 P2PreviewBox.Image = Properties.Resources.Boolean_Passive__2_;
                 P2CharNameLabel.Text = "Boolean";
                 Refresh();
