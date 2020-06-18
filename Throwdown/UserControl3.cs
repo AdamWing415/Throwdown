@@ -598,7 +598,7 @@ namespace Throwdown
 
             //reset players to starting position
             P1X = 50;
-            P2X = 490;
+            P2X = 690;
 
             //pause game and 3, 2, 1 , go text 
             gametimer.Stop();
